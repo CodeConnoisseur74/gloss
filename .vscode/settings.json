@@ -1,19 +1,6 @@
 {
-  "files.exclude": {
-    "**/.DS_Store": true,
-    "**/.git": true,
-    "**/.github": true,
-    "**/.gitp*": true,
-    "**/.hg": true,
-    "**/.svn": true,
-    "**/.vscode": true,
-    "**/core.Microsoft*": true,
-    "**/core.mongo*": true,
-    "**/core.python*": true,
-    "**/CVS": true
-  },
-  "workbench.iconTheme": "sweet-vscode-icons",
-  "workbench.colorTheme": "Synthax",
+  "workbench.iconTheme": "charmed-icons",
+  "workbench.colorTheme": "Blossoms",
   "terminal.integrated.tabs.defaultColor": "terminal.ansiMagenta",
   "terminal.integrated.automationProfile.linux": null,
   "workbench.colorCustomizations": {
@@ -46,27 +33,63 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "django-html": "html",
-    "html": "html"
   },
   "editor.formatOnType": false,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.language.colorizedBracketPairs": [],
+  "html.autoClosingTags": false,
   "editor.fontWeight": "bold",
   "terminal.integrated.fontFamily": "ComicShannsMono Nerd Font Mono",
   "terminal.integrated.fontSize": 16,
+  "files.trimTrailingWhitespace": true,
   "files.associations": {
-    "**/views/**/*.html": "django-html",
-    "*.tpl": "django-html"
+    "**/*.html": "html",
+    "**/templates/*/*.html": "django-html",
+    "**/templates/*": "django-html",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+  },
+  "[html]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "HookyQR.beautify"
   },
   "[django-html]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "HookyQR.beautify"
   },
-  "html.format.templating": true,
+  "beautify.language": {
+    "js": {
+      "type": [
+        "javascript",
+        "json",
+        "jsonc"
+      ],
+      "filename": [
+        ".jshintrc",
+        ".jsbeautifyrc"
+      ]
+    },
+    "css": [
+      "css",
+      "less",
+      "scss"
+    ],
+    "html": [
+      "htm",
+      "html",
+      "django-html"
+    ]
+  },
+  "html.format.enable": true,
   "ruff.lint.run": "onSave",
   "workbench.commandPalette.experimental.suggestCommands": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "powermode.enabled": true,
+  "powermode.combo.location": "off",
+  "powermode.combo.counterEnabled": "hide",
+  "powermode.combo.timerEnabled": "hide",
+  "powermode.shake.intensity": 0,
   "editor.defaultFormatter": "HookyQR.beautify",
   "django.snippets.exclude": [
     "cms",
@@ -76,7 +99,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "ruff.lint.args": [
-    "--config=~/workspace/gloss/pyproject.toml",
+    "--config=~/django-test/edenthought/pyproject.toml",
   ],
   "flake8.args": [
     "--max-line-length=119",
@@ -87,6 +110,7 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "editor.mouseWheelZoom": true,
+  "window.zoomLevel": 1,
   "terminal.integrated.mouseWheelZoom": true,
   "terminal.integrated.copyOnSelection": true,
   "evenBetterToml.formatter.columnWidth": 1,
@@ -94,7 +118,7 @@
   "ruff.lineLength": 119,
   "debug.console.acceptSuggestionOnEnter": "on",
   "python.terminal.activateEnvironment": false,
-  "ruff.configuration": "/gloss/pyproject.toml",
+  "ruff.configuration": "/workspace/django-test/edenthought/pyproject.toml",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
