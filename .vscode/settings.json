@@ -12,95 +12,91 @@
     "**/core.python*": true,
     "**/CVS": true
   },
-  "files.autoSave": "afterDelay",
+  "workbench.iconTheme": "sweet-vscode-icons",
   "workbench.colorTheme": "Synthax",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+  "terminal.integrated.tabs.defaultColor": "terminal.ansiMagenta",
+  "terminal.integrated.automationProfile.linux": null,
+  "workbench.colorCustomizations": {
+    "terminal.foreground": "#c79bff",
+    "terminalCursor.foreground": "#c79bff",
+    "minimap.background": "#00000000",
+    "scrollbar.shadow": "#00000000"
   },
-  "terminal.integrated.gpuAcceleration": "on",
+  "files.autoSave": "afterDelay",
   "editor.fontSize": 16,
-  "editor.wordWrap": "on",
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "workbench.iconTheme": "dark-minimalist-icons",
-  "gitpod.openInStable.neverPrompt": true,
-  "html.format.templating": true,
-  "editor.mouseWheelZoom": true,
-  "terminal.integrated.mouseWheelZoom": true,
-  "editor.fontWeight": "bold",
-  "terminal.integrated.fontSize": 16,
-  "extensions.ignoreRecommendations": true,
-  "editor.formatOnSave": true,
-  "html.autoClosingTags": false,
-  "html.format.enable": false,
   "editor.fontFamily": "ComicShannsMono Nerd Font Mono",
+  "editor.wordWrap": "on",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
   "editor.rulers": [
     119
   ],
   "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll": "explicit"
+      "source.fixAll": "always",
+      "source.organizeImports": "explicit"
     }
   },
-  "ruff.lint.args": [
-    "--config=/workspace/codename-blog/pyproject.toml",
-  ],
-  "flake8.args": [
-    "--max-line-length=119",
-    "--ignore=E402,F841,F401,E302,E305"
-  ],
-  "[html]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.defaultFormatter": "HookyQR.beautify"
+  "editor.guides.bracketPairs": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "django-html": "html",
+    "html": "html"
+  },
+  "editor.formatOnType": false,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.language.colorizedBracketPairs": [],
+  "editor.fontWeight": "bold",
+  "terminal.integrated.fontFamily": "ComicShannsMono Nerd Font Mono",
+  "terminal.integrated.fontSize": 16,
+  "files.associations": {
+    "**/views/**/*.html": "django-html",
+    "*.tpl": "django-html"
   },
   "[django-html]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "HookyQR.beautify"
   },
-  "[markdown]": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": null
-  },
-  "files.associations": {
-    "**/*.html": "html",
-    "**/templates/*/*.html": "django-html",
-    "**/templates/*": "django-html",
-    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
-  },
-  "emmet.includeLanguages": {
-    "django-html": "html"
-  },
-  "beautify.language": {
-    "js": {
-      "type": [
-        "javascript",
-        "json",
-        "jsonc"
-      ],
-      "filename": [
-        ".jshintrc",
-        ".jsbeautifyrc"
-      ]
-    },
-    "css": [
-      "css",
-      "less",
-      "scss"
-    ],
-    "html": [
-      "htm",
-      "html",
-      "django-html"
-    ]
-  },
-  "workbench.tree.indent": 16,
-  "workbench.tree.renderIndentGuides": "always",
-  "ruff.configuration": "/workspace/codename-blog/pyproject.toml",
+  "html.format.templating": true,
+  "ruff.lint.run": "onSave",
+  "workbench.commandPalette.experimental.suggestCommands": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "editor.defaultFormatter": "HookyQR.beautify",
   "django.snippets.exclude": [
     "cms",
     "wagtail"
   ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "ruff.lint.args": [
+    "--config=~/workspace/gloss/pyproject.toml",
+  ],
+  "flake8.args": [
+    "--max-line-length=119",
+    "--ignore=E402,F841,F401,E302,E305"
+  ],
+  "html.format.wrapLineLength": 119,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.mouseWheelZoom": true,
+  "terminal.integrated.mouseWheelZoom": true,
+  "terminal.integrated.copyOnSelection": true,
+  "evenBetterToml.formatter.columnWidth": 1,
+  "evenBetterToml.formatter.allowedBlankLines": 1,
+  "ruff.lineLength": 119,
+  "debug.console.acceptSuggestionOnEnter": "on",
+  "python.terminal.activateEnvironment": false,
+  "ruff.configuration": "/gloss/pyproject.toml",
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "terminal.integrated.ignoreBracketedPasteMode": true,
 }
