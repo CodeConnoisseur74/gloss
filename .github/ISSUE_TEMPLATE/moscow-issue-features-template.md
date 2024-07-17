@@ -10,7 +10,7 @@ assignees: CodeConnoisseur74
 ## Acceptance Criteria:
 
  - List item
- - 
+ - List item
 
 ___
 ## Tasks:
