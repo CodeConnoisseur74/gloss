@@ -2,16 +2,16 @@ from django.shortcuts import render
 
 
 def homepage(request):
-    pass
+    return render(request, 'note/index.html')
 
 
 def register(request):
-    pass
+    return render(request, 'note/register.html')
 
 
 def my_login(request):
-    pass
+    return render(request, 'note/my-login.html')
 
 
 def dashboard(request):
-    pass
+    return render(request, 'note/dashboard.html')
