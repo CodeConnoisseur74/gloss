@@ -123,4 +123,5 @@
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "terminal.integrated.ignoreBracketedPasteMode": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
 }
