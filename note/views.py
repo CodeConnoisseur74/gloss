@@ -1,6 +1,8 @@
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import auth
 from django.shortcuts import redirect, render
 
-from note.forms import CreateUserForm
+from note.forms import CreateUserForm, LoginForm
 
 
 def homepage(request):
@@ -19,7 +21,24 @@ def register(request):
 
 
 def my_login(request):
-    return render(request, 'note/my-login.html')
+    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request, data=request.POST)
+
+        if form.is_valid():
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                auth.login(request, user)
+
+                return redirect('dashboard')
+
+    context = {'LoginForm': form}
+
+    return render(request, 'journal/my-login.html', context)
 
 
 def dashboard(request):
