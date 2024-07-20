@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+from note.forms import CreateUserForm
 
 
 def homepage(request):
@@ -6,7 +8,14 @@ def homepage(request):
 
 
 def register(request):
-    return render(request, 'note/register.html')
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('my-login')
+    context = {'RegistrationForm': form}
+    return render(request, 'note/register.html', context)
 
 
 def my_login(request):
