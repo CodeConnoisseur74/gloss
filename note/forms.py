@@ -6,5 +6,5 @@ from django.contrib.auth.models import User
 
 class CreateUserForm(UserCreationForm):
     class Meta:
-        model = User,
+        model = User
         fields: ClassVar[list[str]] = ['username', 'email', 'password1', 'password2']
