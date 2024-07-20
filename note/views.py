@@ -38,7 +38,7 @@ def my_login(request):
 
     context = {'LoginForm': form}
 
-    return render(request, 'journal/my-login.html', context)
+    return render(request, 'note/my-login.html', context)
 
 
 def dashboard(request):
