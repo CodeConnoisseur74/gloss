@@ -1,1 +1,12 @@
-<h1> Dashboard </h1>
+{% extends 'note/navbar.html' %}
+{% block content %}
+
+  <div class="container bg-tertiary shadow-lg p-5 form-layout">
+
+    <h1>Dashboard</h1>
+
+    <a href="{% url 'user-logout' %}"> Logout here </a>
+
+  </div>
+
+{% endblock %}
