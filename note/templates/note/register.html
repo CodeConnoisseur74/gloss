@@ -1,29 +1,48 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
 <html>
 
 <head>
   <title>Gloss | Register</title>
+
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <br />
 
-<div class="container">
+<div class="container bg-tertiary shadow-lg p-5 form-layout">
   <h3>Create your account</h3>
 
-  <h5>Share your gloss notes today!</h5>
+  <h5>Share your thoughts today!</h5>
 
-  <br>
-  <br>
+  <br />
+  <br />
 
   <form method="POST" autocomplete="off">
     {% csrf_token %}
 
-    {{ RegistrationForm.as_p}}
+    {{ RegistrationForm|crispy }}
 
-    <br> <br>
 
-    <button type="submit"> &nbsp; Create account</button>
+    <br />
+
+    <button class="btn btn-secondary btn-lg w-100 btn-block p-3" type="submit"><i class="fa fa-user-plus"
+        aria-hidden="true"></i> &nbsp; Create account</button>
   </form>
 
+  <br />
+
+  <div class="text-center">
+    <a href="{% url 'my-login' %}">Already have an account?</a>
+  </div>
 </div>
+
+<br />
 
 </html>
