@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import auth
 from django.shortcuts import redirect, render
@@ -15,6 +16,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'User created!')
             return redirect('my-login')
     context = {'RegistrationForm': form}
     return render(request, 'note/register.html', context)

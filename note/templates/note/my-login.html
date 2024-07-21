@@ -16,8 +16,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
-</head>
-
 <br>
 
 <div class="container bg-tertiary shadow-lg p-5 form-layout">
@@ -28,6 +26,14 @@
   <br>
 
   <form method="POST" autocomplete="off">
+    {% for message in messages %}
+
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <p id="message-timer" class="alert alert-dismissible alert-success float-center text-center message-text">
+          <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{ message }}
+        </p>
+      {% endif %}
+    {% endfor %}
 
     {% csrf_token %}
 
@@ -42,5 +48,7 @@
 </div>
 
 <br>
+
+<script src="{% static 'js/app.js' %}"></script>
 
 </html>
