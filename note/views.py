@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import auth
 from django.shortcuts import redirect, render
 
@@ -41,5 +42,12 @@ def my_login(request):
     return render(request, 'note/my-login.html', context)
 
 
+def user_logout(request):
+    auth.logout(request)
+
+    return redirect('')
+
+
+@login_required(login_url='my-login')
 def dashboard(request):
     return render(request, 'note/dashboard.html')
