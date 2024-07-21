@@ -43,5 +43,13 @@ def my_login(request):
     return render(request, 'note/my-login.html', context)
 
 
+def user_logout(request):
+    auth.logout(request)
+
+    messages.success(request, 'You were logged out securely!')
+
+    return redirect('')
+
+
 def dashboard(request):
     return render(request, 'note/dashboard.html')
