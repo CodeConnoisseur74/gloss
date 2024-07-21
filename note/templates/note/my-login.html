@@ -1,1 +1,33 @@
-<h1> Login </h1>
+
+<html>
+
+<head>
+  <html lang="en" data-bs-theme="dark">
+
+  <title>Gloss | Login</title>
+
+</head>
+
+<br>
+
+<div class="container">
+
+  <h3>Login to your account</h3>
+
+  <br>
+  <br>
+
+  <form method="POST" autocomplete="off">
+
+    {% csrf_token %}
+
+    {{ LoginForm.as_p}}
+
+    <br> <br>
+
+    <button type="submit"> &nbsp; Login</button>
+  </form>
+
+</div>
+
+</html>
