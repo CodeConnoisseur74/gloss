@@ -12,8 +12,8 @@ from note.models import Note
 class NoteForm(ModelForm):
     class Meta:
         model = Note
-        fields: ClassVar[list[str]] = ['title', 'content']
-        exclude: ClassVar[list[str]] = ['user']
+        fields: ClassVar[list[str]] = ['title', 'content',]
+        exclude: ClassVar[list[str]] = ['user',]
 
 
 class CreateUserForm(UserCreationForm):

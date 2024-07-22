@@ -72,7 +72,7 @@ def create_note(request):
 
             messages.success(request, 'Note created!')
 
-            return redirect('my-notes')
+            return redirect('dashboard')
 
     context = {'CreateNoteForm': form}
 

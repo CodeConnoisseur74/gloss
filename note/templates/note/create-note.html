@@ -18,7 +18,7 @@
 
     {% csrf_token %}
 
-    {{CreateNoteForm.title|as_crispy_field}}
+    {{CreateNoteForm|crispy}}
 
     <br>
 
