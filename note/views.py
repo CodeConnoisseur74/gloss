@@ -1,9 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import auth
 from django.shortcuts import redirect, render
 
-from note.forms import CreateUserForm, LoginForm
+from note.forms import CreateUserForm, LoginForm, NoteForm
 
 
 def homepage(request):
@@ -50,6 +51,29 @@ def user_logout(request):
 
     return redirect('')
 
-
+@login_required(login_url='my-login')
 def dashboard(request):
     return render(request, 'note/dashboard.html')
+
+
+@login_required(login_url='my-login')
+def create_note(request):
+    form = NoteForm()
+
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+
+        if form.is_valid():
+            note = form.save(commit=False)
+
+            note.user = request.user
+
+            note.save()
+
+            messages.success(request, 'Note created!')
+
+            return redirect('dashboard')
+
+    context = {'CreateNoteForm': form}
+
+    return render(request, 'note/create-note.html', context)
