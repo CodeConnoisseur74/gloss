@@ -5,6 +5,7 @@ from django.contrib.auth.models import auth
 from django.shortcuts import redirect, render
 
 from note.forms import CreateUserForm, LoginForm, NoteForm
+from note.models import Note
 
 
 def homepage(request):
@@ -15,10 +16,12 @@ def register(request):
     form = CreateUserForm()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
+
         if form.is_valid():
             form.save()
             messages.success(request, 'User created!')
             return redirect('my-login')
+
     context = {'RegistrationForm': form}
     return render(request, 'note/register.html', context)
 
@@ -36,11 +39,8 @@ def my_login(request):
 
             if user is not None:
                 auth.login(request, user)
-
                 return redirect('dashboard')
-
     context = {'LoginForm': form}
-
     return render(request, 'note/my-login.html', context)
 
 
@@ -50,6 +50,7 @@ def user_logout(request):
     messages.success(request, 'You were logged out securely!')
 
     return redirect('')
+
 
 @login_required(login_url='my-login')
 def dashboard(request):
@@ -65,15 +66,17 @@ def create_note(request):
 
         if form.is_valid():
             note = form.save(commit=False)
-
             note.user = request.user
-
             note.save()
-
             messages.success(request, 'Note created!')
-
-            return redirect('dashboard')
-
+            return redirect('my-notes')
     context = {'CreateNoteForm': form}
-
     return render(request, 'note/create-note.html', context)
+
+
+@login_required(login_url='my-login')
+def my_notes(request):
+    current_user = request.user.id
+    note = Note.objects.all().filter(user=current_user)
+    context = {'AllNotes': note}
+    return render(request, 'note/my-notes.html', context)

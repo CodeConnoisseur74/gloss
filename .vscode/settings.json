@@ -1,5 +1,5 @@
 {
-  "workbench.iconTheme": "charmed-icons",
+  "workbench.iconTheme": "hotline-wired",
   "workbench.colorTheme": "Blossoms",
   "terminal.integrated.tabs.defaultColor": "terminal.ansiMagenta",
   "terminal.integrated.automationProfile.linux": null,
@@ -55,7 +55,7 @@
   },
   "[django-html]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "HookyQR.beautify"
+    "editor.defaultFormatter": "junstyle.vscode-django-support"
   },
   "beautify.language": {
     "js": {
@@ -80,7 +80,6 @@
       "django-html"
     ]
   },
-  "html.format.enable": true,
   "ruff.lint.run": "onSave",
   "workbench.commandPalette.experimental.suggestCommands": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
@@ -90,7 +89,7 @@
   "powermode.combo.counterEnabled": "hide",
   "powermode.combo.timerEnabled": "hide",
   "powermode.shake.intensity": 0,
-  "editor.defaultFormatter": "HookyQR.beautify",
+  "editor.defaultFormatter": "junstyle.vscode-django-support",
   "django.snippets.exclude": [
     "cms",
     "wagtail"
@@ -99,7 +98,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "ruff.lint.args": [
-    "--config=~/django-test/edenthought/pyproject.toml",
+    "--config=~/gloss/pyproject.toml",
   ],
   "flake8.args": [
     "--max-line-length=119",
@@ -117,10 +116,11 @@
   "evenBetterToml.formatter.allowedBlankLines": 1,
   "ruff.lineLength": 119,
   "debug.console.acceptSuggestionOnEnter": "on",
-  "ruff.configuration": "/workspace/django-test/edenthought/pyproject.toml",
+  "ruff.configuration": "/workspace/gloss/pyproject.toml",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "terminal.integrated.ignoreBracketedPasteMode": true,
   "python.terminal.activateEnvInCurrentTerminal": true,
+  "html.format.templating": true,
 }

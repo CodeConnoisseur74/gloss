@@ -3,61 +3,61 @@
 <!DOCTYPE html>
 
 <html lang="en" data-bs-theme="dark">
+  <head>
+    <title>Gloss</title>
+    <meta charset="utf-8" />
 
-<head>
+    <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
 
-  <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
 
-  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
 
-  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <a class="navbar-brand main-heading">&nbsp; Gloss</a>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-  <title>Gloss</title>
+    <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        &nbsp; &nbsp; &nbsp;<li class="nav-item">
+          <a class="btn btn-primary navbar-btn" type="button" href="{% url 'register' %}">Register</a>
+        </li>&nbsp; &nbsp; &nbsp;<li class="nav-item">
+          <a class="btn btn-primary navbar-btn" type="button" href="{% url 'my-login' %}">Login</a>
+        </li>&nbsp; &nbsp; &nbsp;
+      </ul>
+    </div>
+  </nav>
 
-</head>
+  {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <p id="message-timer" class="alert alert-dismissible alert-success float-center text-center message-text">
+        <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{ message }}
+      </p>
+    {% endif %}
+  {% endfor %}
 
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-  <a class="navbar-brand main-heading">&nbsp; Gloss</a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span
-      class="navbar-toggler-icon"></span></button>
-
-  <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
-    <ul class="navbar-nav ms-auto">
-      &nbsp; &nbsp; &nbsp;<li class="nav-item">
-        <a class="btn btn-primary navbar-btn" type="button" href="{% url 'register' %}">Register</a>
-      </li>&nbsp; &nbsp; &nbsp;<li class="nav-item">
-        <a class="btn btn-primary navbar-btn" type="button" href="{% url 'my-login' %}">Login</a>
-      </li>&nbsp; &nbsp; &nbsp;
-    </ul>
-  </div>
-</nav>
-
-<body>
-  <br />
-  <br />
-
-  <div class="text-center">
-    <h2>Gloss.... an annotation ... a note.</h2>
-
+  <body>
+    <br />
     <br />
 
-    <a class="btn btn-outline-primary" type="button" href="{% url 'register' %}">Register</a>
-  </div>
-</body>
+    <div class="text-center">
+      <h2>Gloss.... an annotation ... a note.</h2>
 
-<script src=""></script>
+      <br />
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+      <a class="btn btn-outline-primary" type="button" href="{% url 'register' %}">Register</a>
+    </div>
+  </body>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src=""></script>
 
-<script src="{% static 'js/app.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <script src="{% static 'js/app.js' %}"></script>
 </html>

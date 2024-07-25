@@ -8,10 +8,21 @@
       </p>
     {% endif %}
   {% endfor %}
-  <div class="container bg-tertiary shadow-lg p-5 form-layout">
-    <h1>Dashboard</h1> {{ user }}
+  <br />
+  {% for note in Allnotes %}
+    <div class="container bg-tertiary shadow-lg p-5 form-layout">
+      <h3>{{ note.title }}</h3>
+      <br />
+      {{ note.content }}
+      <br />
+      {{ note.date_posted }}
+      <br />
+      <hr />
+
+      {{ note.user }}
+    </div>
     <br />
-    <a href="{% url 'user-logout' %}">Logout here</a>
-  </div>
+  {% endfor %}
+  <br />
   <script src="{% static 'js/app.js' %}"></script>
 {% endblock %}
