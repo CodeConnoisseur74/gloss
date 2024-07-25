@@ -100,4 +100,4 @@ def update_note(request, pk):
 
             return redirect('my-notes')
     context = {'UpdateNote': form}
-    return render(request, 'journal/update-note.html', context)
+    return render(request, 'note/update-note.html', context)
