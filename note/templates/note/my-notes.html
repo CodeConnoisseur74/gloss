@@ -3,23 +3,26 @@
 {% block content %}
   {% for message in messages %}
     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-      <p id="message-timer" class="alert alert-dismissible alert-success float-center text-center message-text">
+      <p id="message-timer" class="alert alert-success float-center text-center message-text">
         <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{ message }}
       </p>
     {% endif %}
   {% endfor %}
   <br />
-  {% for note in Allnotes %}
+  {% for note in AllNotes %}
     <div class="container bg-tertiary shadow-lg p-5 form-layout">
       <h3>{{ note.title }}</h3>
-      <br />
       {{ note.content }}
       <br />
       {{ note.date_posted }}
       <br />
-      <hr />
-
-      {{ note.user }}
+      <hr />By, {{ note.user }}
+      <br />
+      <br />
+      <br />
+      <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update</a>
+      <br />
+      <br />
     </div>
     <br />
   {% endfor %}

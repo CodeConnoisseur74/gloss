@@ -80,3 +80,24 @@ def my_notes(request):
     note = Note.objects.all().filter(user=current_user)
     context = {'AllNotes': note}
     return render(request, 'note/my-notes.html', context)
+
+
+@login_required(login_url='my-login')
+def update_note(request, pk):
+    try:
+        note = Note.objects.get(id=pk, user=request.user)
+    except:  # noqa: E722
+        return redirect('my-notes')
+
+    form = NoteForm(instance=note)
+
+    if request.method == 'POST':
+        form = NoteForm(request.POST, instance=note)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Note updated!')
+
+            return redirect('my-notes')
+    context = {'UpdateNote': form}
+    return render(request, 'journal/update-note.html', context)
