@@ -13,4 +13,6 @@ urlpatterns = [
     path('my-notes', views.my_notes, name='my-notes'),
     path('update-note/<str:pk>', views.update_note, name='update-note'),
     path('delete-note/<str:pk>', views.delete_note, name='delete-note'),
+    path('profile-management', views.profile_management, name='profile-management'),
+    path('delete-account', views.delete_account, name='delete-account'),
 ]

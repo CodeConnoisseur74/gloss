@@ -9,8 +9,10 @@
     {% endif %}
   {% endfor %}
   <div class="container bg-tertiary shadow-lg p-5 form-layout">
-    <h1>Dashboard</h1> {{ user }}
+    <h1>{{ user }}</h1>
+    <p>Welcome, {{ user }}!</p>
     <br />
+    <img style="width:120px; height:100px;" src="{{ profilePic.profile_pic.url }}" />
     <a href="{% url 'user-logout' %}">Logout here</a>
   </div>
   <script src="{% static 'js/app.js' %}"></script>
