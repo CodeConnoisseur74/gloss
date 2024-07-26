@@ -1,11 +1,11 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import auth
+from django.contrib.auth.models import User, auth
 from django.shortcuts import redirect, render
 
-from note.forms import CreateUserForm, LoginForm, NoteForm
-from note.models import Note
+from note.forms import CreateUserForm, LoginForm, NoteForm, UpdateProfileForm, UpdateUserForm
+from note.models import Note, Profile
 
 
 def homepage(request):
@@ -117,3 +117,38 @@ def delete_note(request, pk):
         return redirect('my-notes')
     context = {'DeleteNote': note}
     return render(request, 'note/delete-note.html', context)
+
+
+@login_required(login_url='my-login')
+def profile_management(request):
+    form = UpdateUserForm(instance=request.user)
+    profile = Profile.objects.get(user=request.user)
+    form_2 = UpdateProfileForm(instance=profile)
+
+    if request.method == 'POST':
+        form = UpdateUserForm(request.POST, instance=request.user)
+        form_2 = UpdateProfileForm(request.POST, request.FILES, instance=profile)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Update success!')
+            return redirect('dashboard')
+
+        if form_2.is_valid():
+            form_2.save()
+
+            messages.success(request, 'Update success!')
+            return redirect('dashboard')
+    context = {'UserUpdateForm': form, 'ProfileUpdateForm': form_2}
+    return render(request, 'note/profile-management.html', context)
+
+
+@login_required(login_url='my-login')
+def delete_account(request):
+    if request.method == 'POST':
+        delete_user = User.objects.get(username=request.user)
+        delete_user.delete()
+        messages.success(request, 'Your account was deleted!')
+
+        return redirect('')
+    return render(request, 'note/delete-account.html')

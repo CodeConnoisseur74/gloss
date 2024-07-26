@@ -8,3 +8,9 @@ class Note(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
 
     user = models.ForeignKey(User, max_length=10, on_delete=models.CASCADE, null=True)
+
+
+class Profile(models.Model):
+    profile_pic = models.ImageField(null=True, blank=True, default='Default.png', upload_to='media/')
+
+    user = models.ForeignKey(User, max_length=10, on_delete=models.CASCADE, null=True)
