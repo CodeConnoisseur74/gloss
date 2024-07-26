@@ -18,7 +18,9 @@ def register(request):
         form = CreateUserForm(request.POST)
 
         if form.is_valid():
+            current_user = form.save(commit=False)
             form.save()
+            profile = Profile.objects.create(user=current_user)
             messages.success(request, 'User created!')
             return redirect('my-login')
 
@@ -54,6 +56,8 @@ def user_logout(request):
 
 @login_required(login_url='my-login')
 def dashboard(request):
+    profile_pic = Profile.objects.get(user=request.user)
+    context = {'profilePic': profile_pic}
     return render(request, 'note/dashboard.html')
 
 
