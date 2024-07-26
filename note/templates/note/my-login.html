@@ -1,27 +1,17 @@
 {% load static %}
-
 {% load crispy_forms_tags %}
-
 <html>
-
 <head>
   <html lang="en" data-bs-theme="dark">
-
   <title>Gloss | Login</title>
-
   <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
-
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <div class="container bg-tertiary shadow-lg p-5 form-layout">
-
   <h3>Login to your account</h3>
-
   <br>
   <br>
-
   <form method="POST" autocomplete="off">
     {% for message in messages %}
 
@@ -31,21 +21,21 @@
         </p>
       {% endif %}
     {% endfor %}
-
     {% csrf_token %}
-
     {{ LoginForm|crispy }}
-
     <br> <br>
-
     <button class="btn btn-secondary btn-md w-100 btn-block p-3" type="submit"><i class="fa fa-key"
         aria-hidden="true"></i> &nbsp; Login</button>
   </form>
+  <div class="text-center">
+    <a href="{% url 'register' %}"> Don't have an account? </a>
+  </div>
+  <br>
+  <div class="text-center">
+      <a href="{% url 'reset_password' %}"> Forgotten your password? </a>
+  </div>
 
 </div>
-
 <br>
-
 <script src="{% static 'js/app.js' %}"></script>
-
 </html>

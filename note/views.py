@@ -108,22 +108,6 @@ def update_note(request, pk):
 
 
 @login_required(login_url='my-login')
-def delete_note(request, pk):
-    try:
-        note = Note.objects.get(id=pk, user=request.user)
-    except:  # noqa: E722
-        return redirect('my-notes')
-
-    if request.method == 'POST':
-        note.delete()
-        messages.success(request, 'Note deleted!')
-
-        return redirect('my-notes')
-    context = {'DeleteNote': note}
-    return render(request, 'note/delete-note.html', context)
-
-
-@login_required(login_url='my-login')
 def profile_management(request):
     form = UpdateUserForm(instance=request.user)
     profile = Profile.objects.get(user=request.user)
