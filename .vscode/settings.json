@@ -1,11 +1,11 @@
 {
   "workbench.iconTheme": "hotline-wired",
-  "workbench.colorTheme": "Blossoms",
+  "workbench.colorTheme": "Synthax",
   "terminal.integrated.tabs.defaultColor": "terminal.ansiMagenta",
   "terminal.integrated.automationProfile.linux": null,
   "workbench.colorCustomizations": {
-    "terminal.foreground": "#c79bff",
-    "terminalCursor.foreground": "#c79bff",
+    "terminal.foreground": "#d0b7ff",
+    "terminalCursor.foreground": "#d0b7ff",
     "minimap.background": "#00000000",
     "scrollbar.shadow": "#00000000"
   },

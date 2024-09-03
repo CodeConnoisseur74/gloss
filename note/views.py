@@ -58,7 +58,7 @@ def user_logout(request):
 def dashboard(request):
     profile_pic = Profile.objects.get(user=request.user)
     context = {'profilePic': profile_pic}
-    return render(request, 'note/dashboard.html')
+    return render(request, 'note/dashboard.html', context)
 
 
 @login_required(login_url='my-login')

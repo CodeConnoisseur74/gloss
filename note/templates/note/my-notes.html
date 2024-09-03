@@ -23,7 +23,7 @@
       <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update</a>
       <br />
       <br />
-      <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete</a>
+      {% comment %} <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete</a> {% endcomment %}
     </div>
     <br />
   {% endfor %}
