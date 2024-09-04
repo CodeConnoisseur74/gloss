@@ -123,4 +123,6 @@
   "terminal.integrated.ignoreBracketedPasteMode": true,
   "python.terminal.activateEnvInCurrentTerminal": true,
   "html.format.templating": true,
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontWeight": "bold",
 }

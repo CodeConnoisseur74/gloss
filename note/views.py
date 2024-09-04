@@ -140,3 +140,16 @@ def delete_account(request):
 
         return redirect('')
     return render(request, 'note/delete-account.html')
+
+
+@login_required(login_url='my-login')
+def delete_note(request, pk):
+    try:
+        note = Note.objects.get(id=pk, user=request.user)
+    except:  # noqa: E722
+        return redirect('my-notes')
+
+    if request.method == 'POST':
+        note.delete()
+
+    return render(request, 'note/delete-note.html')
