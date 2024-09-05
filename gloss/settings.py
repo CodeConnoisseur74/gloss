@@ -32,10 +32,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-# ALLOWED_HOSTS = ['127.0.0.1:8000', '127.0.0.1', '.herokuapp.com']
-ALLOWED_HOSTS = ['https://gloss-37a7c75fa1bb.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1:8000', '127.0.0.1', 'https://gloss-37a7c75fa1bb.herokuapp.com/']
 
 
 # Application definition
