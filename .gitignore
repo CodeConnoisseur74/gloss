@@ -76,6 +76,9 @@ docs/_build/
 .pybuilder/
 target/
 
+#Python
+env.py
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
@@ -121,6 +124,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+env
 .env
 .venv
 env/
