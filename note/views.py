@@ -1,7 +1,9 @@
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
+from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 
 from note.forms import CreateUserForm, LoginForm, NoteForm, UpdateProfileForm, UpdateUserForm
@@ -20,6 +22,12 @@ def register(request):
         if form.is_valid():
             current_user = form.save(commit=False)
             form.save()
+            send_mail(
+                'Welcome to Gloss',
+                'Congrats on creating your account!',
+                settings.DEFAULT_FROM_EMAIL,
+                [current_user.email],
+            )
             profile = Profile.objects.create(user=current_user)
             messages.success(request, 'User created!')
             return redirect('my-login')
