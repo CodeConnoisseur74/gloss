@@ -1,5 +1,5 @@
 <h1 align="center">Gloss</h1>
-<div align="center"><img src="docs/img/gloss-logo.png" alt=""></div>
+<div align="center"><img src="docs/img/gloss.png" alt=""></div>
 
 [View the live project here.](https://#.herokuapp.com/)
 
