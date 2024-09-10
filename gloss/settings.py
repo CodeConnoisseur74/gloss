@@ -37,7 +37,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1:8000', '127.0.0.1', 'https://gloss-37a7c75fa1bb.herokuapp.com/']
 
-# CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ['https://gloss-37a7c75fa1bb.herokuapp.com/']
 
 # Application definition
 
