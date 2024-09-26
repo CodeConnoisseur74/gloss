@@ -16,6 +16,9 @@ from pathlib import Path
 import dj_database_url
 import environ
 
+env = environ.Env()
+environ.Env.read_env()
+
 if os.path.isfile('env.py'):
     import env
 
@@ -33,7 +36,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1:8000', '127.0.0.1', 'https://gloss-37a7c75fa1bb.herokuapp.com/']
 
@@ -100,7 +103,7 @@ WSGI_APPLICATION = 'gloss.wsgi.application'
 
 DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
-CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
+# CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
 
 
 # Password validation
@@ -137,8 +140,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+MEDIA_ROOT = BASE_DIR / 'media'
+
 MEDIA_URL = 'media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if 'BASE_DIR' in globals():
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+else:
+    raise ValueError('BASE_DIR is not defined')
 
 STATIC_URL = 'static/'
 
