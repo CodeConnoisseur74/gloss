@@ -1,6 +1,7 @@
 {% extends 'note/navbar.html' %}
 {% load static %}
 {% block content %}
+  <!-- Displaying messages at the top -->
   {% for message in messages %}
     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
       <p id="message-timer" class="alert alert-success float-center text-center message-text">
@@ -9,24 +10,30 @@
     {% endif %}
   {% endfor %}
   <br />
-  {% for note in AllNotes %}
-    <div class="container bg-tertiary shadow-lg p-5 form-layout">
-      <h3>{{ note.title }}</h3>
-      {{ note.content }}
-      <br />
-      {{ note.date_posted }}
-      <br />
-      <hr />By, {{ note.user }}
-      <br />
-      <br />
-      <br />
-      <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
-      <br />
-      <br />
-      <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
-    </div>
-    <br />
-  {% endfor %}
+
+  <!-- Bootstrap Grid: One column on small screens, two on medium, and three on large -->
+  <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+    {% for note in AllNotes %}
+      <!-- Each note will be a column -->
+      <div class="col">
+        <div class="container bg-tertiary shadow-lg p-5 form-layout">
+          <h3>{{ note.title }}</h3>
+          {{ note.content }}
+          <br />
+          {{ note.date_posted }}
+          <br />
+          <hr />By, {{ note.user }}
+          <br />
+          <br />
+          <br />
+          <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+          <br />
+          <br />
+          <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
   <br />
   <script src="{% static 'js/app.js' %}"></script>
 {% endblock %}
