@@ -13,21 +13,18 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-import dj_database_url
+# Import and initialize our environment variables
 import environ
 
 env = environ.Env()
 environ.Env.read_env()
-
-if os.path.isfile('env.py'):
-    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Take environment variables from .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -36,9 +33,10 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG', default='False') == 'True'
 
-ALLOWED_HOSTS = ['127.0.0.1:8000', '127.0.0.1', 'https://gloss-37a7c75fa1bb.herokuapp.com/']
+
+ALLOWED_HOSTS = ['*']
 
 # CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
 
@@ -55,6 +53,7 @@ INSTALLED_APPS = [
     'note',
     'crispy_forms',
     'crispy_bootstrap5',
+    'storages',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
@@ -155,25 +154,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-MEDIA_ROOT = BASE_DIR / 'media'
-
 MEDIA_URL = 'media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-if 'BASE_DIR' in globals():
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-else:
-    raise ValueError('BASE_DIR is not defined')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -194,37 +181,28 @@ DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 # AWS configuration
 
-# """
-
-# AWS_ACCESS_KEY_ID = '' # - Enter your AWS Access Key ID HERE
-# AWS_SECRET_ACCESS_KEY = '' # - Enter your AWS Secret Access Key ID HERE
-
-# """
-
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
 # Django 4.2 > Storage configuration for Amazon S3
 
-# """
-
-# AWS_STORAGE_BUCKET_NAME = '' # - Enter your S3 bucket name HERE
+AWS_STORAGE_BUCKET_NAME = 's3-gloss-bucket'
 
 
-# STORAGES = {
+STORAGES = {
 
-#     # Media file (image) management
-#     "default": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-#     },
+    # Media file (image) management
+    'default': {
+        'BACKEND': 'storages.backends.s3boto3.S3StaticStorage',
+    },
 
-#     # CSS and JS file management
-#     "staticfiles": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    # CSS and JS file management
+    'staticfiles': {
+        'BACKEND': 'storages.backends.s3boto3.S3StaticStorage',
 
-#     },
-# }
+    },
+}
 
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME  # noqa: UP031
 
-# AWS_S3_FILE_OVERWRITE = False
-
-# """
+AWS_S3_FILE_OVERWRITE = False
