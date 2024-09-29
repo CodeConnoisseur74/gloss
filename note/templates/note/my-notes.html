@@ -11,29 +11,88 @@
   {% endfor %}
   <br />
 
-  <!-- Bootstrap Grid: One column on small screens, two on medium, and three on large -->
-  <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-    {% for note in AllNotes %}
-      <!-- Each note will be a column -->
-      <div class="col">
-        <div class="container bg-tertiary shadow-lg p-5 form-layout">
-          <h3>{{ note.title }}</h3>
-          {{ note.content }}
-          <br />
-          {{ note.date_posted }}
-          <br />
-          <hr />By, {{ note.user }}
-          <br />
-          <br />
-          <br />
-          <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
-          <br />
-          <br />
-          <a class="btn btn-outline-primary btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+  <!-- Check if there are no notes and show a message -->
+  {% if AllNotes|length == 0 %}
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <p class="alert alert-info text-center">Create your first note. They will appear here.</p>
+        <div class="d-flex justify-content-center">
+          <a class="btn btn-primary btn-md" href="{% url 'create-note' %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Create Note</a>
         </div>
       </div>
-    {% endfor %}
-  </div>
+    </div>
+  {% else %}
+    <!-- Dynamically render based on the number of notes -->
+    {% if AllNotes|length == 1 %}
+      <!-- Full-screen width for one note -->
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="container bg-tertiary shadow-lg p-5 form-layout">
+            <h3>{{ AllNotes.0.title }}</h3>
+            {{ AllNotes.0.content }}
+            <br />
+            {{ AllNotes.0.date_posted }}
+            <br />
+            <hr />By, {{ AllNotes.0.user }}
+            <br />
+            <br />
+            <br />
+            <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' AllNotes.0.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+            <br />
+            <br />
+            <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'delete-note' AllNotes.0.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+          </div>
+        </div>
+      </div>
+    {% elif AllNotes|length == 2 %}
+      <!-- Center two notes -->
+      <div class="row justify-content-center gy-4">
+        {% for note in AllNotes %}
+          <div class="col-md-6">
+            <div class="container bg-tertiary shadow-lg p-5 form-layout">
+              <h3>{{ note.title }}</h3>
+              {{ note.content }}
+              <br />
+              {{ note.date_posted }}
+              <br />
+              <hr />By, {{ note.user }}
+              <br />
+              <br />
+              <br />
+              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+              <br />
+              <br />
+              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <!-- Standard grid for three or more notes -->
+      <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+        {% for note in AllNotes %}
+          <div class="col">
+            <div class="container bg-tertiary shadow-lg p-5 form-layout">
+              <h3>{{ note.title }}</h3>
+              {{ note.content }}
+              <br />
+              {{ note.date_posted }}
+              <br />
+              <hr />By, {{ note.user }}
+              <br />
+              <br />
+              <br />
+              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+              <br />
+              <br />
+              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}
+
   <br />
   <script src="{% static 'js/app.js' %}"></script>
 {% endblock %}

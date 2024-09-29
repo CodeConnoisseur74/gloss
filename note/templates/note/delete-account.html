@@ -7,7 +7,7 @@
     <br />
     <form method="POST" autocomplete="off">
       {% csrf_token %}
-      <button class="btn btn-outline-danger btn-md w-100 btn-block p-3" type="submit"><i class="fa fa-minus" aria-hidden="true"></i> &nbsp; Yes, delete my account</button>
+      <button class="btn btn-danger btn-md w-100 btn-block p-3" type="submit"><i class="fa fa-minus" aria-hidden="true"></i> &nbsp; Yes, delete my account</button>
     </form>
     <br />
     <a href="{% url 'profile-management' %}">Return to profile management</a>
