@@ -13,6 +13,7 @@ from note.models import Note, Profile
 def homepage(request):
     return render(request, 'note/index.html')
 
+
 def register(request):
     form = CreateUserForm()
     if request.method == 'POST':
