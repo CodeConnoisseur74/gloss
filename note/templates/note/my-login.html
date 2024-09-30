@@ -22,7 +22,7 @@
       {% csrf_token %}
       {{ LoginForm|crispy }}
       <br /> <br />
-      <button class="btn btn-secondary btn-md w-100 btn-block p-3" type="submit"><i class="fa fa-key" aria-hidden="true"></i> &nbsp; Login</button>
+      <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa fa-key" aria-hidden="true"></i> &nbsp; Login</button>
     </form>
     <div class="text-center">
       <a href="{% url 'register' %}">Don't have an account?</a>
