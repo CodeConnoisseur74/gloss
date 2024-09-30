@@ -37,7 +37,7 @@ DEBUG = env('DEBUG', default='False') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
-# CSRF_TRUSTED_ORIGINS = ['https://*.herokuapp.com']
+# CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 
