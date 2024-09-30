@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os
 from pathlib import Path
 
 # Import and initialize our environment variables
@@ -179,7 +178,7 @@ AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
 # Django 4.2 > Storage configuration for Amazon S3
 
-AWS_STORAGE_BUCKET_NAME = 's3-gloss-bucket'
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 
 
 STORAGES = {
