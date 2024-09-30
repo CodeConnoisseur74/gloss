@@ -35,9 +35,9 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG', default='False') == 'True'
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['gloss-37a7c75fa1bb.herokuapp.com', '*']
 
-# CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ['https://gloss-37a7c75fa1bb.herokuapp.com']
 
 # Application definition
 
@@ -182,16 +182,13 @@ AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 
 
 STORAGES = {
-
     # Media file (image) management
     'default': {
         'BACKEND': 'storages.backends.s3boto3.S3StaticStorage',
     },
-
     # CSS and JS file management
     'staticfiles': {
         'BACKEND': 'storages.backends.s3boto3.S3StaticStorage',
-
     },
 }
 
