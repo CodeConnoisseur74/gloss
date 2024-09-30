@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   </head>
 
   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -36,12 +37,63 @@
   {% endfor %}
 
   <body>
-    <br />
-    <br />
-    <div class="text-center">
+    <div class="text-center mt-5 mt-lg-3 mb-5 mb-lg-5">
       <h2>Gloss.... an annotation ... a note.</h2>
       <br />
       <a class="btn btn-primary" type="button" href="{% url 'register' %}">Register</a>
+    </div>
+    <!-- Flexbox container with adjusted spacing for responsiveness -->
+    <div class="d-flex justify-content-center align-items-center min-vh-50">
+      <div class="container text-center mt-5 mb-5">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6">
+            <div class="icon">
+              <i class="bi bi-pc-display-horizontal"></i>
+            </div>
+            <h4>Web App</h4>
+            <p>Available in your desktop and mobile browser. all you have to do is create an account, sign in and viola!</p>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="icon">
+              <i class="bi bi-journal-text"></i>
+            </div>
+            <h4>Notes</h4>
+            <p>Create notes you can save. Need to make changes? click the pretty in pink update button.No longer need them? then smash the delete button.</p>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="icon">
+              <i class="bi bi-list-task"></i>
+            </div>
+            <h4>Tasks Lists</h4>
+            <p>wish you could write a list wherever you are? Well then go ahead! Write those spur of the moment lists to get sh*t done!</p>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="icon">
+              <i class="bi bi-person-hearts"></i>
+            </div>
+            <h4>User Friendly</h4>
+            <p>Got an email address and a fancy username in mind? Great! Just click the 'Register' button at the top of this page to setup your account and get started. Easy Peasy Lemon Squeezy!</p>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="icon">
+              <i class="bi bi-github"></i>
+            </div>
+            <h4>Open Source</h4>
+            <p>
+              So you think you are a Rock Star Developer with awesome ideas? Then go ahead and git clone, create a branch and help us create some magic. We dare ya! <a target="_blank" rel="noopener" href="https://github.com/CodeConnoisseur74/gloss">GitHub</a>.
+            </p>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="icon">
+              <i class="bi bi-send"></i>
+            </div>
+            <h4>Stay Updated</h4>
+            <p>
+              Dont be a stranger. Keep in touch and stay updated and folow us on <a href="https://twitter.com/">Twitter</a>, or <a href="https://linkedin.com/">LinkedIn</a>.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 
