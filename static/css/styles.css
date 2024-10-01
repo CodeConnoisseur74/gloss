@@ -1,14 +1,16 @@
-.form-layout {
-
-   border-radius: 20px;
-   width: 500px;
-
+/* Disable scrolling when the no-scroll class is applied */
+.no-scroll {
+   overflow: hidden;
+   height: 100%;
 }
 
+
+/* Keep the form layout styling without a fixed width */
+.form-layout {
+   border-radius: 20px;
+}
+
+/* Styling for message text */
 .message-text {
-
-
    color: white;
-
-
 }

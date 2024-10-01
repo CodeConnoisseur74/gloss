@@ -1,29 +1,34 @@
 {% load static %}
 {% load crispy_forms_tags %}
-<html>
+<html lang="en" data-bs-theme="dark">
   <head>
     <title>Gloss | Register</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
-  <br />
-  <div class="container bg-tertiary shadow-lg p-5 form-layout">
-    <h3>Create your account</h3>
-    <h5>Share your notes today!</h5>
-    <br />
-    <br />
-    <form method="POST" autocomplete="off">
-      {% csrf_token %}
-      {{ RegistrationForm|crispy }}
-      <br />
-      <button class="btn btn-primary btn-lg w-100 btn-block p-3" type="submit"><i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp; Create account</button>
-    </form>
-    <br />
-    <div class="text-center">
-      <a href="{% url 'my-login' %}">Already have an account?</a>
+  <body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+      <!-- Make the form responsive with col classes -->
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-tertiary shadow-lg p-5 form-layout">
+        <h3>Create your account</h3>
+        <br />
+        <form method="POST" autocomplete="off">
+          {% csrf_token %}
+          {{ RegistrationForm|crispy }}
+          <br />
+          <button class="btn btn-primary btn-lg w-100 btn-block p-3" type="submit">
+            <i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp; Create account
+          </button>
+        </form>
+        <br />
+        <div class="text-center">
+          <a href="{% url 'my-login' %}">Already have an account?</a>
+        </div>
+      </div>
     </div>
-  </div>
-  <br />
+  </body>
 </html>

@@ -3,35 +3,41 @@
 <html lang="en" data-bs-theme="dark">
   <head>
     <title>Gloss | Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
     <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
-  <div class="container bg-tertiary shadow-lg p-5 form-layout">
-    <h3>Login to your account</h3>
-    <br />
-    <br />
-    <form method="POST" autocomplete="off">
-      {% for message in messages %}
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-          <p id="message-timer" class="alert alert-dismissible alert-success float-center text-center message-text">
-            <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{ message }}
-          </p>
-        {% endif %}
-      {% endfor %}
-      {% csrf_token %}
-      {{ LoginForm|crispy }}
-      <br /> <br />
-      <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa fa-key" aria-hidden="true"></i> &nbsp; Login</button>
-    </form>
-    <div class="text-center">
-      <a href="{% url 'register' %}">Don't have an account?</a>
+  <body class="no-scroll">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-tertiary shadow-lg p-5 form-layout">
+        <h3 class="text-center">Login to your account</h3>
+        <br />
+        <form method="POST" autocomplete="off">
+          {% csrf_token %}
+          {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+              <p id="message-timer" class="alert alert-dismissible alert-success float-center text-center message-text">
+                <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{ message }}
+              </p>
+            {% endif %}
+          {% endfor %}
+          {{ LoginForm|crispy }}
+          <br /> <br />
+          <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa fa-key" aria-hidden="true"></i> &nbsp; Login</button>
+        </form>
+        <br />
+        <div class="text-center">
+          <a href="{% url 'register' %}">Don't have an account?</a>
+        </div>
+        <br />
+        <div class="text-center">
+          <a href="{% url 'reset_password' %}">Forgotten your password?</a>
+        </div>
+      </div>
     </div>
-    <br />
-    <div class="text-center">
-      <a href="{% url 'reset_password' %}">Forgotten your password?</a>
-    </div>
-  </div>
-  <br />
-  <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+  </body>
 </html>
