@@ -6,14 +6,14 @@
   </head>
   <br />
   <div class="container bg-tertiary shadow-lg p-5 form-layout">
-    <h3>Create a Note</h3>
+    <h1>Create a Note</h1>
     <p>You may create a note below:</p>
     <br />
     <form method="POST" autocomplete="off">
       {% csrf_token %}
       {{ CreateNoteForm|crispy }}
       <br />
-      <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Create Note</button>
+      <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Create Note</button>
     </form>
   </div>
   <br />

@@ -10,7 +10,7 @@
       {% csrf_token %}
       {{ UpdateNote|crispy }}
       <br />
-      <button class="btn btn-primary btn-md w-100 btn-block p-2" type="submit"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update note</button>
+      <button class="btn btn-primary btn-md w-100 btn-block p-2" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update note</button>
     </form>
     <br />
     <a href="{% url 'my-notes' %}">Return to notes</a>

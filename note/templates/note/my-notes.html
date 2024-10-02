@@ -5,7 +5,7 @@
   {% for message in messages %}
     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
       <p id="message-timer" class="alert alert-success float-center text-center message-text">
-        <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{ message }}
+        <i class="fa-solid fa-check" aria-hidden="true"></i> &nbsp; {{ message }}
       </p>
     {% endif %}
   {% endfor %}
@@ -17,7 +17,7 @@
       <div class="col-md-8 col-lg-6">
         <p class="alert alert-info text-center">Create your first note. They will appear here.</p>
         <div class="d-flex justify-content-center">
-          <a class="btn btn-primary btn-md" href="{% url 'create-note' %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Create Note</a>
+          <a class="btn btn-primary btn-md" href="{% url 'create-note' %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Create Note</a>
         </div>
       </div>
     </div>
@@ -31,16 +31,17 @@
             <h3>{{ AllNotes.0.title }}</h3>
             {{ AllNotes.0.content }}
             <br />
-            {{ AllNotes.0.date_posted }}
+            <!-- Display UTC time in a time element with datetime attribute for conversion -->
+            <time class="utc-time" datetime="{{ AllNotes.0.date_posted|date:'c' }}">{{ AllNotes.0.date_posted|date:'Y-m-d H:i:s' }} UTC</time>
             <br />
             <hr />By, {{ AllNotes.0.user }}
             <br />
             <br />
             <br />
-            <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' AllNotes.0.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+            <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' AllNotes.0.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
             <br />
             <br />
-            <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' AllNotes.0.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+            <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' AllNotes.0.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
           </div>
         </div>
       </div>
@@ -53,16 +54,17 @@
               <h3>{{ note.title }}</h3>
               {{ note.content }}
               <br />
-              {{ note.date_posted }}
+              <!-- Display UTC time in a time element with datetime attribute for conversion -->
+              <time class="utc-time" datetime="{{ note.date_posted|date:'c' }}">{{ note.date_posted|date:'Y-m-d H:i:s' }} UTC</time>
               <br />
               <hr />By, {{ note.user }}
               <br />
               <br />
               <br />
-              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
               <br />
               <br />
-              <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+              <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
             </div>
           </div>
         {% endfor %}
@@ -76,16 +78,17 @@
               <h3>{{ note.title }}</h3>
               {{ note.content }}
               <br />
-              {{ note.date_posted }}
+              <!-- Display UTC time in a time element with datetime attribute for conversion -->
+              <time class="utc-time" datetime="{{ note.date_posted|date:'c' }}">{{ note.date_posted|date:'Y-m-d H:i:s' }} UTC</time>
               <br />
               <hr />By, {{ note.user }}
               <br />
               <br />
               <br />
-              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
               <br />
               <br />
-              <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+              <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Delete Note</a>
             </div>
           </div>
         {% endfor %}
@@ -95,4 +98,6 @@
 
   <br />
   <script src="{% static 'js/app.js' %}"></script>
+  <!-- Include the script to convert UTC time to local time -->
+  <script src="{% static 'js/convert_time.js' %}"></script>
 {% endblock %}
