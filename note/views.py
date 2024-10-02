@@ -56,9 +56,7 @@ def my_login(request):
 
 def user_logout(request):
     auth.logout(request)
-
     messages.success(request, 'You were logged out securely!')
-
     return redirect('')
 
 
@@ -159,5 +157,7 @@ def delete_note(request, pk):
 
     if request.method == 'POST':
         note.delete()
+        messages.success(request, 'Note deleted!')
+        return redirect('my-notes')
 
     return render(request, 'note/delete-note.html')
