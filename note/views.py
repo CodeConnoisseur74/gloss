@@ -87,8 +87,8 @@ def create_note(request):
 @login_required(login_url='my-login')
 def my_notes(request):
     current_user = request.user.id
-    note = Note.objects.all().filter(user=current_user)
-    context = {'AllNotes': note}
+    notes = Note.objects.filter(user=current_user).order_by('-date_posted')
+    context = {'AllNotes': notes}
     return render(request, 'note/my-notes.html', context)
 
 
