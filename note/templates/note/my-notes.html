@@ -15,7 +15,7 @@
   {% if AllNotes|length == 0 %}
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
-        <p class="alert alert-info text-center">Create your first note. They will appear here.</p>
+        <h2 class="text-center mt-4 mt-lg-3 mb-4 mb-lg-5">Create your first note. They will appear here.</h2>
         <div class="d-flex justify-content-center">
           <a class="btn btn-primary btn-md" href="{% url 'create-note' %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Create Note</a>
         </div>
@@ -99,5 +99,5 @@
   <br />
   <script src="{% static 'js/app.js' %}"></script>
   <!-- Include the script to convert UTC time to local time -->
-  <script src="{% static 'js/convert_time.js' %}"></script>
+  <script src="{% static 'js/convert_time.js' %}" defer></script>
 {% endblock %}
