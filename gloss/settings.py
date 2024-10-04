@@ -179,6 +179,7 @@ AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 
+# sBoto3 Storages configuration
 
 STORAGES = {
     # Media file (image) management
