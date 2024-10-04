@@ -1,5 +1,5 @@
 <h1 align="center">Gloss</h1>
-<div align="center"><img src="docs/img/gloss-logo.png" alt=""></div>
+<div align="center"><img src="docs/img/amiresponsive.png" alt=""></div>
 
 [View the live project here.](https://#.herokuapp.com/)
 
@@ -198,7 +198,7 @@
   - Was used for all storing and backup of the code pertaining to the project.
 - [Figma:](https://figma.com/)
   - Was used to create wireframes
-- [LucidCharts:](https://www.lucidchart.com/)
+- [Canva:](https://www.lucidchart.com/)
   - Was used to create the database schema.
 
 
