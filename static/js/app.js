@@ -1,9 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+// This runs once the DOM content is fully loaded (preferred for DOM manipulation)
+document.addEventListener("DOMContentLoaded", function () {
   var message_timeout = document.getElementById("message-timer");
 
   if (message_timeout) {
-      setTimeout(function () {
-          message_timeout.style.display = "none";
-      }, 5000);
+    setTimeout(function () {
+      message_timeout.style.display = "none";
+    }, 5000);
   }
 });
