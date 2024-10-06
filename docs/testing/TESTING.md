@@ -1,77 +1,121 @@
-# Testing
+# Manual Functional Testing
 
-Return to [README.md](/README.md)
+<details>
+<summary><b>Navigation</b></summary>
+<br>
+<summary>
+<b>Navigation Links</b>
 
-## Methodology
+Testing was performed to ensure all navigation links on the respective pages, navigated to the correct pages as per design. This was done by clicking on the navigation links on each page.
 
-Testing was done throughout the process while developing the project by the use of Django debug pages and printing statements to check that the code functioned accordingly. In addition, thorough testing has been performed and is described below, it contains of manual test to check that all user stories and acceptance criteria are met, as well as testing and validating the code with different online tools as presented below.
+- Home -> index.html
 
-&nbsp;
+![Home](docs/testing/)
 
-### Test Cases
+- About -> about.html
 
-&nbsp;
+- Logout -> Sign out all auth page
 
-### User Stories
+![Logout](docs/testing/)
 
-#### Menu page
+- Login -> Sign in
 
-| Testing                     | Steps                                               | Expected Outcome                                      | Results |
-| --------------------------- | --------------------------------------------------- | ----------------------------------------------------- | ------- |
-| Customer can view menu page | Test menu link and child links within the menu page | Being able to open and browse the menu without errors | PASS    |
+![Login](docs/testing/)
 
-#### User Account Creation
+- Register -> Sign up
 
-| Testing                           | Steps                         | Expected Outcome                    | Results |
-| --------------------------------- | ----------------------------- | ----------------------------------- | ------- |
-| Customer signup page              | Test link is working          | User is directed to the signup page | PASS    |
-| Customer signup - Form validation | Submit empty form             | Form validation prompts the user    | PASS    |
-| Customer signup - Form validation | Submit invalid email address  | Form validation prompts the user    | PASS    |
-| Customer signup - Form validation | Submit invalid password       | Form validation prompts the user    | PASS    |
-| Customer signup - Form validation | Submit non matching passwords | Form validation prompts the user    | PASS    |
-| Customer signup - Form validation | Submit already taken username | Form validation prompts the user    | PASS    |
-| Customer login page               | Test link is working          | User is directed to the login page  | PASS    |
-| Customer login - Form validation  | Submit incorrect password     | Form validation prompts the user    | PASS    |
-| Customer login - Form validation  | Submit incorrect name         | Form validation prompts the user    | PASS    |
-| Customer Logout page              | Test link is working          | User is logged out                  | PASS    |
+![Register](docs/testing/)
 
-#### User Feature
+- Link to login on register -> Sign up
+- Link to login -> Sign in
+- Link to sign up -> Sign up
 
-| Testing                            | Steps                                                                                                         | Expected Outcome                                                                 | Results |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------- |
-| Form validation Booking page       | Check that each required field is working correctly in the form                                               | Form validation prompts the user                                                 | PASS    |
-| Features are shown on feature page | Check that each feature for a user are shown on the feature page                                              | Individual cards of each feature is shown with the corresponding feature details | PASS    |
-| Features can be edited             | Check that the edit button works and that the updated feature is submitted to the feature page when edited    | Booking is updated with the corresponding feature details                        | PASS    |
-| Features can can be deleted        | Check that the delete button works and that the deleted feature is removed from the feature page when deleted | feature list is updated                                                          | PASS    |
+- Navigation menu will scale down to a hamburger menu
+![Home](docs/testing/)
 
-#### Navbar
+All navigation links directed to the correct pages as expected.
+</summary>
+</details>
 
-| Testing | Steps                                     | Expected Outcome                                                                        | Results |
-| ------- | ----------------------------------------- | --------------------------------------------------------------------------------------- | ------- |
-| Navbar  | Check that each link is working correctly | Customer is able to open each link to browse the webpage for information about the site | PASS    |
+<hr>
 
-#### Admin
+<details>
+<summary><b>Register Form</b></summary>
+<summary>
+<br>
+<hr>
 
-| Testing                       | Steps                            | Expected Outcome                                          | Results |
-| ----------------------------- | -------------------------------- | --------------------------------------------------------- | ------- |
-| Admin login - Form validation | Submit incorrect password        | Form validation prompts the user                          | PASS    |
-| Admin login - Form validation | Submit incorrect name            | Form validation prompts the user                          | PASS    |
-| Admin login - Form validation | Submit incorrect name            | Form validation prompts the user                          | PASS    |
-| Admin panel                   | Owner is able to update features | Feature is updated with the corresponding feature details | PASS    |
-| Admin panel                   | Owner is able to delete features | Booking is deleted from current feature list              | PASS    |
+<hr>
+Description:
 
-## Further Testing
+Register for an account
 
-- The website was thoroughly tested on different browsers including Google Chrome, Internet Explorer, Safari and Microsoft Edge. Extensive testing was performed to make sure all the links and navigation work properly. Testing on different devices to make sure it scales properly using the below tools:
-  [Responsivetesttool](http://responsivetesttool.com/)
-- [Google Devtools](https://developer.chrome.com/docs/devtools/open/)
+Steps:
 
-- [W3C Markup Validator](https://validator.w3.org/nu/)
-- No errors or warnings that are relevant was shown
+<hr>
 
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - No errors or warnings that are relevant was shown
+Expected:
 
-- [Python Validator](https://extendsclass.com/python-tester.html#:~:text=To%20check%20your%20code%2C%20you,use%20this%20python%20checker%20tool.)
-- No errors or warnings that are relevant was shown
+Actual:
 
-Return to [README.md](/README.md)
+<hr>
+
+## Code Validation
+
+### HTML & CSS
+
+All html and css files ran through the [Official W3C validator](https://validator.w3.org/)
+
+ All files valid<br>
+
+![]()
+
+Errors displayed below are errors <b>
+![Errors]()
+
+### Python
+
+All files ran through Code Institutes [Python Linter](https://pep8ci.herokuapp.com/#)<br>
+Every .py file has passed without any issues or errors.<br>
+
+![python](static/images/readme_files/docs/Validation-python-clear.png)
+
+### JavaScript
+
+All files run through the [JSHint Linter](https://jshint.com/)
+Javascript file passed without any issues or errors.
+
+![javascript]()
+
+### Lighthouse
+
+Website was analyzed with Lighthouse: ![Lighthouse]()<br>
+
+### Wave
+
+The website was checked through wave [Wave](https://wave.webaim.org/)
+No Errors are showing up in Wave.
+
+![Wave]()
+
+### Responsiveness
+
+All pages were tested to ensure responsiveness on screen sizes from 320px and upwards as defined in WCAG 2.1 Reflow criteria for responsive design on Chrome, Edge, Firefox and Opera browsers.
+
+Steps to test:
+
+Expected:<br>
+
+Actual:<br>
+Website behaved as expected.
+
+Website was also opened on the following devices and no responsive issues were seen:
+
+Google Pixel 8 Pro<br>
+Huawei p20 pro
+
+## Bugs
+
+There are no current bugs on the website that I know of.
+
+Bugs that I bumped into in production but managed to solve:
