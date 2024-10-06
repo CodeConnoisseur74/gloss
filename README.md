@@ -42,16 +42,7 @@ Description
 
 ### User Goals
 
-- Read about the Bluey tv show and the Longdog easter eggs
-- Interact with other users by liking and commenting on blogposts.
-- Easily navigate the platform and access relevant information.
-- Have a visually appealing and responsive user interface.
-
 ### Site Owner Goals
-
-- Create a intertesting blog about the Longdogs and Bluey.
-- Engage users by providing valuable content and features.
-- Increase user retention through interactive features and personalized experiences.
 
 ### User Stories
 
