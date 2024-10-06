@@ -1,323 +1,365 @@
-<h1 align="center">Gloss</h1>
-<div align="center"><img src="docs/img/amiresponsive.png" alt=""></div>
+# Gloss
 
-[View the live project here.](https://#.herokuapp.com/)
+Description
 
+[**Live site**](https://gloss-37a7c75fa1bb.herokuapp.com/)
 
-## TOC
+![Device Mockups](docs/images/amiresponsive.png)
 
-- [TOC](#toc)
-- [User Experience (UX)](#user-experience-ux)
-- [Features](#features)
-  - [Navbar](#navbar)
-  - [Hero](#hero)
-  - [Menu](#menu)
-  - [About](#about)
-  - [Testimonials](#testimonials)
-  - [Gallery](#gallery)
-  - [Contact](#contact)
-  - [Account signup/login](#account-signuplogin)
-  - [Booking page](#booking-page)
-  - [Mybookings](#mybookings)
-  - [Delete user account](#delete-user-account)
-  - [Footer](#footer)
-  - [Future Features](#future-features)
-- [Technologies Used](#technologies-used)
-  - [Languages](#languages)
-  - [Frameworks, Libraries, Programs](#frameworks-libraries-programs)
-  - [Programs \& Tools](#programs--tools)
-- [Testing](#testing)
-  - [Bugs](#bugs)
-    - [Fixed Bugs](#fixed-bugs)
-    - [Remaining Bugs](#remaining-bugs)
-  - [Testing User Stories from User Experience (UX) Section](#testing-user-stories-from-user-experience-ux-section)
-- [Deployment](#deployment)
-  - [Forking the GitHub Repository](#forking-the-github-repository)
-  - [Running the project locally](#running-the-project-locally)
-  - [Alternatively by using Gitpod:](#alternatively-by-using-gitpod)
-  - [Deploying with Heroku](#deploying-with-heroku)
-    - [Heroku Settings](#heroku-settings)
-    - [Heroku Deployment](#heroku-deployment)
-- [Credits](#credits)
-  - [Code](#code)
+## Content
+
+- [Gloss](#gloss)
   - [Content](#content)
-  - [Media](#media)
-  - [Acknowledgements](#acknowledgements)
+  - [Project Goals](#project-goals)
+    - [User Goals](#user-goals)
+    - [Site Owner Goals](#site-owner-goals)
+    - [User Stories](#user-stories)
+  - [Agile Planning](#agile-planning)
+  - [Features](#features)
+    - [Navbar](#navbar)
+  - [Home page](#home-page)
+    - [Register Form](#register-form)
+    - [Login page](#login-page)
+    - [Dashboard](#dashboard)
+    - [Profile Management](#profile-management)
+  - [Profile picture](#profile-picture)
+  - [Testing](#testing)
+  - [Validators](#validators)
+  - [Heroku Deployment](#heroku-deployment)
+  - [Run Locally](#run-locally)
+  - [Technologies](#technologies)
+    - [External Python Modules](#external-python-modules)
+  - [Planning](#planning)
+    - [Wireframes (Canva)](#wireframes-canva)
+  - [Database schema and Flowchart](#database-schema-and-flowchart)
+  - [Security](#security)
+    - [Cross-Site Request Forgery (CSRF) Protection](#cross-site-request-forgery-csrf-protection)
+    - [Django Allauth for Authentication and Authorization](#django-allauth-for-authentication-and-authorization)
+    - [Restricted Features for Authenticated Users](#restricted-features-for-authenticated-users)
+  - [Credits](#credits)
 
-## User Experience (UX)
--   ### Project goals
-  The overall goal of the website is to    . In addition, users should be able to    . It will also provide a management admin panel for    .
+## Project Goals
 
--   ### User stories
+### User Goals
 
-    -   #### First Time User Goals
-          - As a first time user I can
-          - As a first time user I can
-          - As a first time user I can
+- Read about the Bluey tv show and the Longdog easter eggs
+- Interact with other users by liking and commenting on blogposts.
+- Easily navigate the platform and access relevant information.
+- Have a visually appealing and responsive user interface.
 
-    -   #### Returning User Goals
-        -  As a returning user I can
-        -  As a returning user I can
+### Site Owner Goals
 
-    -   #### Frequent User Goals
-        -  As a frequent user I can
-        -  As a frequent user I can
+- Create a intertesting blog about the Longdogs and Bluey.
+- Engage users by providing valuable content and features.
+- Increase user retention through interactive features and personalized experiences.
 
--   ### Agile methodology
-    - The principles of agile methodology were utilized during the project. By assigning user stories to issues and taking advantage of the GitHub Kanban board functionality, the necessary goals and priorities throughout the project could be well defined. In addition, labels were used to further define the priority of each user story in the Kanban board.
+### User Stories
 
--   ### Design
-    - The theme for the project were chosen in accordance with the intended target market in mind    . With its
+Following user stories was implemeneted in the project:
 
-     - Colors
-        - The main colors are  to provide a look and feel. Furthermore, elements such as buttons, icons, symbols, links and headings are made in    color that follows the pattern of  and adds to the premier look and feel of the webpage.
-     - Font
-        - The fonts in the theme are clear and modern and contribute perfectly to the overall      setting.
-     - Images
-        - The images in the theme provide great content and presentation of the
+- As a Site Admin I can delete users so that I can manage my websites users
+- As a Site Admin I can create, read, update and delete notes in order to manage site content.
+- As a user I can edit and delete my notes.
+- As a user I can open notes in order to read them.
+- As a user I can create notes on my dashboards.
+- As a user I can create an account in order to create, read, update and delete notes.
+- As a user I can go to Home page to find information about site, open source and social media accounts.
+- As a user I can use the Profile Manager in order to update my username, password and profile picture.
 
--   ### Wireframes
-    - A separate document for the wireframes can be viewed here:
-      - [For Desktop view](docs/WIREFRAMES.md)
-      - [For Mobile view](docs/WIREFRAMES_mobile.md)
+Following user stories was not implemented and labeled as "Future Ideas"
 
--   ### Database Schema
-    - The database design schema can be viewed below. It consists of a      model with a foreignKey of User that relates to the Django standard User model class.
-    ![dbschema](docs/img/db_schema.png)
+- As a admin of the site, I can...
+- As a user, I can..
+- As a user I can...
+- As a user, I can receive push notifications for new notes....
+- As a user, I can bookmark notes and create a collection of notes according to category and/or date.
+
+## Agile Planning
+
+[Link to the user stories project](https://github.com/users//projects/)
+
+![User Stories](docs/agile-planning-user-stories.png)
 
 ## Features
 
 ### Navbar
-- The navbar shows all the sections that the user can enter and provides a quick and easy means of navigating the site. The link to        make it extra easy to find and use.
-&nbsp;
 
-![Navbar](/docs/img/features/navbar.png)
+**Fully responsive navbar with links to:**
 
-### Hero
-- The hero section makes for a great first impression of the site and      . It also encompasses the links that the user most likely needs the most often which is the     link and the link to make a      at the
-&nbsp;
+    - Home page
+    - About page
+    - Register section
+    - Login section
+    - Contact Section
+    - Likes (If user is autenticated)
 
-![Hero](/docs/img/features/hero.png)
+**Logo hyperlinked to home page:**
+![Logo](static/images/gloss-hyperlinked-logo.png)
 
-### Menu
-- The menu section comes with images and descriptions of all the different options available      . It also has a functionality to     .
-&nbsp;
+Featured on all pages across the site.
 
-![Menu](/docs/img/features/menu.png)
+The navbar will adapt based on whether or not the user is authenticated or non-authenticated. (When logged in Login and Register will be hidden and Logout will be displayed in the navbar.)
 
-### About
-- The about section incorporates some of the design and settings of the        further enhance its unique selling points.
-&nbsp;
+**Navbar for non-authenticated users**:
 
-![About](/docs/img/features/about.png)
+![Navbar non auth](docs/images/features/non-auth-navbar.png)
+**Navbar for authenticated users**:
 
-### Testimonials
-- The testimonials show what some of the members says of the   and is a method of providing social proof to increase member interactions of the webpage.
-&nbsp;
+![Navbar auth](docs/images/features/auth-navbar.png)
 
-![Testimonials](/docs/img/features/testimonials.png)
+**_Purpose of feature:_**
+Provide users with an easy and straight-forward way to navigate the site
 
-### Gallery
-- In the gallery    or other section here .
-&nbsp;
+**_Purpose of feature:_**
+Provide users with a way to connect with Gloss Developers and check out Gloss' GitHub profile and social media accounts.
 
-![Gallery](/docs/img/features/gallery.png)
+## Home page
 
-### Contact
-- The contact section includes all the necessary information about the v that the member may need to know about.
-&nbsp;
+**The Home page consists of:**
 
-![Contact](/docs/img/features/contact.png)
+    -  Six short paragraph sections in a responsive grid, summerizing crucial information in a concise manner.
+    -A Register button for ease of use.
 
-### Account signup/login
-- The account pages where the user can create an account in order to make a registration as well as login as an existing users.
-&nbsp;
+![Home Page](docs/images/features/home-page.png)
 
-![signup](/docs/img/features/signup.png)
-![login](/docs/img/features/login.png)
+**_Purpose of feature:_**
+Provide users with a welcoming landing page with concise information and a "call to action" Register button.
 
-### Booking page
-- In the booking page or other section here.
-&nbsp;
+### Register Form
 
+![Register Form](docs/images/features/register-form.png)
 
-### Mybookings
-- or other section here
-&nbsp;
+The fields the user needs to fill in is:
 
-![Mybookings](/docs/img/features/mybookings.png)
+- Userame
+- Email Address
+- Password
 
-### Delete user account
-- When clicking on the "delete" button in the  page.
+_Additional_: All of the fields are required to be filled in, if it's not the user will be prompted to fill in the field before sending.
+The email field needs to contain an email with @ in it to be sent.
 
-![Delete](/docs/img/features/delete.png)
+**_Purpose of feature:_**
+Provide users with form in order to register for an account.
 
-### Footer
-- The footer contains the essential information about the      for easy access to the most relevant contact information and social media links on all pages throughout the website.
-&nbsp;
+### Login page
 
-![Footer](/docs/img/features/footer.png)
+![Login page](docs/images/features/login-form.png)
 
+The login form allows the user to enter their credentials and authenticate to enter the sites authenticated state.
 
-### Future Features
-  - Add functionality to check that
-  - Add a contact form on the main page so members can contact the restaurant via email directly on the webpage.
-  - Create functionality in the admin panel for the admin to be able to add and delete appropriate section here
-  - Create functionality in the admin panel so that admin can update the site sections  on the webpage inside the admin panel.
+The login form also contains a link to the ![Register page](docs/images/features/register-form-link.png) in case the user is not already registered.
 
-## Technologies Used
+### Dashboard
 
-### Languages
-   - Python
-   - JavaScript
-   - HTML5
-   - CSS3
+![Dashboard page]()
 
-### Frameworks, Libraries, Programs
-- Python Built-in Modules:
-  - [os](https://docs.python.org/3/library/os.html)
+**The Dashboard page consists of:**
 
-- External Packages
-  - [](https:)
-  - [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/)
-  - [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/0.0.6/)
-  - [Django](https://pypi.org/project/Django/3.2.14/)
-  - [django-allauth](https://pypi.org/project/django-allauth/0.51.0/)
-  - [](https://pypi.org/project/gunicorn/20.1.0/)
-  - [psycopg2](https://pypi.org/project/psycopg2/2.9.3/)
+    - Profile name
+    - Profile picture
 
-### Programs & Tools
+### Profile Management
 
-- [Google Fonts:](https://fonts.google.com/)
-  - Was used to to incorporate font styles.
-- [Bootstrap](https://getbootstrap.com/)
-  - Was used to create the front-end design.
-- [VSCode:](https:///)
-  - Gitpod was used as IDE to commit and push the project to GitHub.
-- [GitHub:](https://github.com/)
-  - Was used for all storing and backup of the code pertaining to the project.
-- [Figma:](https://figma.com/)
-  - Was used to create wireframes
-- [Canva:](https://www.lucidchart.com/)
-  - Was used to create the database schema.
+## Profile picture
 
+The About page displays an image of the admin next to the paragraph section.
 
 ## Testing
-A separate document for testing can be viewed here: [TESTING.md](docs/TESTING.md)
 
-### Bugs
+The website has been manually tested and everything has been documented in the testing.md file.
 
-#### Fixed Bugs
+Click here to go to: [Testing and validation](testing.md)
 
-| Bug | Solution | Status |
-| --- | :------- | :----- |
-|     |          | Fixed  |
-|     |          | Fixed  |
-|     |          | Fixed  |
-|     |          | Fixed  |
-|     |          | Fixed  |
-|     |          | Fixed  |
+## Validators
 
+All validation can be found in the testing.md file.
 
+Click here to go to: [Testing and validation](testing.md)
 
-#### Remaining Bugs
-  - No known bugs remaining
+## Heroku Deployment
 
-### Testing User Stories from User Experience (UX) Section
+The site was deployed to Heroku. The steps to deploy are as follows:
 
-  -   #### First Time User Goals
-      - As a first time user
-        - When
-      - As a first time User I can .
-        - The Member can
-      - As a first time user can
-        - When entering the webpage
+- Navigate to heroku and create an account
+- Click the new button in the top right corner
+- Select create new app
+- Enter app name
+- Select region and click create app
+- Click the resources tab and search for Heroku Postgres
+- Select hobby dev and continue
+- Go to the settings tab and then click reveal config vars
+- Add the following config vars:
+  - SECRET_KEY: (Your secret key)
+  - DATABASE_URL: (This should already exist with add on of postgres)
+  - EMAIL_HOST_USER: (email address)
+  - EMAIL_HOST_PASS: (email app password)
+  - CLOUNDINARY_URL: (cloudinary api url)
+- Click the deploy tab
+- Scroll down to Connect to GitHub and sign in / authorize when prompted
+- In the search box, find the repositoy you want to deploy and click connect
+- Scroll down to Manual deploy and choose the main branch
+- Click deploy
 
-  -   #### Returning User Goals
-      -  As a returning User I can create an account so I can
-          -  The member can use the signup link and quickly create an account login.
-      -  As a returning user I can
-          - When entering the webpage
+The app should now be deployed.
 
-  -   #### Frequent User Goals
-      -  As a frequent user can
-          - As a frequent user can
-      -  As a frequent user I can
-          - After being logged in, the member can delete their
+## Run Locally
 
+~~~bash
 
-## Deployment
+# Clone the project
 
-### Forking the GitHub Repository
-1. Go to [the project repository](https://github.com/ErikHgm/FireHouse-Restaurant-Project)
-2. In the right most top menu, click the "Fork" button.
-3. There will now be a copy of the repository in your own GitHub account.
+  git clone https://github.com/CodeConnoisseur74/gloss.git
 
+# Go to the project directory
 
-### Running the project locally
-1. Go to [the project repository](https://github.com/ErikHgm/FireHouse-Restaurant-Project)
-2. Click on the "Code" button.
-3. Choose one of the three options (HTTPS, SSH or GitHub CLI) and then click copy.
-4. Open the terminal in you IDE program.
-5. Type `git clone` and paste the URL that was copied in step 3.
-6. Press Enter and the local clone will be created.
+  cd gloss
 
-### Alternatively by using Gitpod:
-1. Go to [the project repository](https://github.com/ErikHgm/FireHouse-Restaurant-Project)
-2. Click the green button that says "Gitpod" and the project will now open up in Gitpod.
+# Install dependencies
 
-### Deploying with Heroku
+  pip3 install -r requirements.txt
 
-I followed the below steps using the Code Institute tutorial:
+# Start the server
+  python3 manage.py runserver
 
-The following command in the Gitpod CLI will create the relevant files needed for Heroku to install your project dependencies `pip3 freeze --local > requirements.txt`. Please note this file should be added to a .gitignore file to prevent the file from being committed.
+~~~
 
-1. Go to [Heroku.com](https://dashboard.heroku.com/apps) and log in; if you do not already have an account then you will need to create one.
-2. Click the `New` dropdown and select `Create New App`.
-3. Enter a name for your new project, all Heroku apps need to have a unique name, you will be prompted if you need to change it.
-4. Select the region you are working in.
+Note that you will have to setup your own database and API connections using these steps:
 
-#### Heroku Settings
-You will need to set your Environment Variables - this is a key step to ensuring your application is deployed properly.
-1. In the Settings tab, click on `Reveal Config Vars` and set the following variables:
-    - Add key: `PORT` & value `8000`
-    - Add key: DATABASE_URL, this should have been created automatically by Heroku.
-    - Add key: CLOUDINARY_URL and the value as your cloudinary API Environment variable e.g.
-    - Add key: SECRET_KEY and the value as a complex string which will be used to provide cryptographic signing.
+1. Create a file name "env.py" in the projects root directory.
+2. Copy and paste this code in the env.py file and replace values with your own:
 
-2. Buildpacks are also required for proper deployment, simply click `Add buildpack` and search for the ones that you require.
-    - For this project, I needed to add `Python`.
+~~~python
 
-####  Heroku Deployment
-In the Deploy tab:
-1. Connect your Heroku account to your Github Repository following these steps:
-    - Click on the `Deploy` tab and choose `Github-Connect to Github`.
-    - Enter the GitHub repository name and click on `Search`.
-    - Choose the correct repository for your application and click on `Connect`.
-2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
-3. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should now see the `View` button, click this to open your application.
+import os
 
+os.environ["DATABASE_URL"]=YOUR_DATABASE_URL
+os.environ["SECRET_KEY"]=YOUR_SECRET_KEY
+os.environ["CLOUDINARY_SECRET"]=YOUR_CLOUDINARY_SECRET
+os.environ["THUMIO_AUTH"]=YOUR_THUMIO_AUTH_KEY
+
+~~~
+
+## Technologies
+
+- HTML
+  - The structure of the Website was developed using HTML as the main language.
+- CSS
+  - The Website was styled using custom CSS in an external file.
+- Python
+  - Python was the main programming language used for the application using the Django Framework.
+- GitHub
+  - Source code is hosted on GitHub
+- Git
+  - Used to commit and push code during the development of the Website
+- Font Awesome
+  - This was used for various icons throughout the site
+- Favicon.io
+  - favicon files were created at <https://favicon.io/favicon-converter/>
+- balsamiq
+  - wireframes were created using balsamiq from <https://balsamiq.com/wireframes/desktop/#>
+- TinyPNG
+  - This was used to compress the hero image for optimal load times
+
+### External Python Modules
+
+- asgiref==3.7.2 - Used for building asynchronous Python web applications, especially with django.
+- cloudinary==1.29.0 - Cloundinary was set up for use but no custom uploads were made, settings remain for future development
+- crispy-bootstrap5==0.6 - This was used to allow bootstrap5 use with crispy forms
+- dj-database-url==0.5.0 - Used to parse database url for production environment
+- dj3-cloudinary-storage==0.0.6 - Storage system to work with cloudinary
+- Django==4.2.10 - Framework used to build the application
+- django-allauth==0.57.2 - Used for the sites authentication system, sign up, sign in, logout, password resets ect.
+- django-crispy-forms==2.1 - Used to style the forms on render
+- gunicorn==20.1.0 - Installed as dependency with another package
+- oauthlib==3.2.0 - Installed as dependency with another package
+- psycopg2==2.9.9 - Needed for heroku deployment
+- PyJWT==2.8.0 - Installed as dependency with another package
+- python3-openid==3.2.0 - Installed as dependency with another package
+- requests-oauthlib==1.3.1 - Installed as dependency with another package (allauth authentication)
+- sqlparse==0.4.4 - Installed as dependency with another package
+- urllib3==1.26.18 - Installed as dependency with another package
+- whitenoise==5.3.0 - Used to serve static files directly without use of static resource provider like cloundinary
+
+## Planning
+
+### Wireframes (Canva)
+
+I created the wireframes for this site with Canva.
+The wireframes should not be considered finished product, but as a tool I used as inspiration when creating the Quiz.
+
+<details>
+<summary><b>Wireframes for desktop</b></summary>
+<summary>Index</summary>
+<img src="static/images/readme_files/wireframes/Index.png">
+<summary>About</summary>
+<img src="static/images/readme_files/wireframes/About.png">
+<summary>Contact</summary>
+<img src="static/images/readme_files/wireframes/Contact.png">
+<summary>Sign up</summary>
+<img src="static/images/readme_files/wireframes/Create Account.png">
+<summary>Sign in</summary>
+<img src="static/images/readme_files/wireframes/Login.png">
+</details>
+
+<details>
+<summary><b>Wireframes for mobile</b></summary>
+<summary>Index</summary>
+<img src="static/images/readme_files/wireframes/Index - Small screen.png">
+<summary>About</summary>
+<img src="static/images/readme_files/wireframes/About - Small screen.png">
+<summary>Contact</summary>
+<img src="static/images/readme_files/wireframes/Contact - Small screen.png">
+<summary>Sign up</summary>
+<img src="static/images/readme_files/wireframes/Create Account - Small screen.png">
+<summary>Sign in</summary>
+<img src="static/images/readme_files/wireframes/Login - Small screen.png">
+</details>
+
+## Database schema and Flowchart
+
+![Database schema](static/images/readme_files/docs/longdog.drawio.png)
+
+![Flowchart](static/images/readme_files/docs/flowchart.png)
+
+**Data storing**:
+
+[PostgreSQL](https://www.postgresql.org/): Database management system used.
+
+[AWS](https://aws.amazon.com/): For storing image files in the cloud.
+
+## Security
+
+### Cross-Site Request Forgery (CSRF) Protection
+
+- Implementing CSRF protection helps prevent malicious websites from executing unauthorized actions on behalf of authenticated users.
+- Django provides built-in CSRF protection by including a CSRF token with each form submission and verifying it on the server side.
+
+### Django Allauth for Authentication and Authorization
+
+- Django Allauth is an authentication and authorization framework that provides features like registration, login, password management, and social authentication.
+- It ensures secure user authentication and authorization processes.
+
+### Restricted Features for Authenticated Users
+
+- Certain features, such as creating, editing, or deleting notes , are reserved for authenticated users only.
+- By requiring users to be logged in to access these features, the application enhances security and ensures that sensitive operations are performed by authorized individuals only.
 
 ## Credits
 
-### Code
-  - [ Boostrap theme](https://bootstrapmade.com/) was the Boostrap theme used in the project.
-  - [Django Documenation](https://www.djangoproject.com/) was used to provide examples of code solutions and Django functionality.
-  - [Bootstrap Documenation](https://getbootstrap.com/) was used to provide examples of Bootstrap functionality and building blocks.
-  - [Code Institute walkthrough](https://codeinstitute.net/) as inspiration and code examples, the code institute walkthroughs "Hello Django" and "I Think Therefore I Blog" was used.
+**Media**:
 
-### Content
-  - The texts that are used for testimonials comes from [](https://www..com/).
-  - The texts that are used for the about section comes from [](https://.com/) website.
+- [Youtube video](https://www.youtube.com/): I used this video to .
 
+- Fontawesome for icons
 
-### Media
-  - The images in the project comes from the [ Boostrap theme](https://bootstrapmade.com/)
-  - The video in the project comes from the [ Boostrap theme](https://bootstrapmade.com/)
+**Other Credits**:
 
-### Acknowledgements
-  - The tutor support team at Code Institute for their support.
-  - My Code Institute Mentor for feedback and suggestions.
-  - The Code Institute Slack community.
+- ChatGPT has been used for content text ONLY. No code has been written with ChatGPT
 
-  [Back to top](#toc)
+- The
+
+- Thanks to the slack community
+
+- Thanks to [](https://github.com/)
+
+- A big thank you to my mentor [](https://github.com/) for the continuing support in all my projects.

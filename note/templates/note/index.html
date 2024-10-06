@@ -1,39 +1,8 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
+{% extends 'note/navbar.html' %}
+{% block content %}
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" />
-    <meta name="title" content="Gloss">
-    <meta name="description" content="Create quick notes on the web with Gloss">
     <title>Gloss</title>
-     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css" crossorigin="anonymous" />
-    <!-- CSS stylesheet -->
-    <link rel="preload" href="{% static 'css/styles.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   </head>
-
-  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <a href="./" class="navbar-brand main-heading ps-2 fw-bold"><i class="fa-solid fa-pen-to-square"></i>&nbsp; Gloss</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-    <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
-      <ul class="navbar-nav ms-auto">
-        &nbsp; &nbsp; &nbsp;<li class="nav-item">
-          <a class="btn btn-primary navbar-btn" type="button" href="{% url 'register' %}">Register</a>
-        </li>&nbsp; &nbsp; &nbsp;<li class="nav-item">
-          <a class="btn btn-primary navbar-btn" type="button" href="{% url 'my-login' %}">Login</a>
-        </li>&nbsp; &nbsp; &nbsp;
-      </ul>
-    </div>
-  </nav>
 
   {% for message in messages %}
     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
@@ -43,72 +12,64 @@
     {% endif %}
   {% endfor %}
 
-  <body>
-    <div class="text-center mt-4 mt-lg-3 mb-4 mb-lg-5">
-      <h1>Gloss.... an annotation ... a note.</h1>
-      <br />
-      <a class="btn btn-primary btn-lg" type="button" href="{% url 'register' %}">Register</a>
-    </div>
+  <div class="text-center mt-4 mt-lg-3 mb-4 mb-lg-5">
+    <h1>Gloss.... an annotation ... a note.</h1>
+    <br />
+    <a class="btn btn-primary btn-lg" type="button" href="{% url 'register' %}">Register</a>
+  </div>
 
-    <!-- Flexbox container with adjusted spacing for responsiveness -->
-    <div class="d-flex justify-content-center align-items-center min-vh-50">
-      <div class="container text-center mt-4 mb-4">
-        <div class="row">
-          <div class="col-lg-4 col-sm-6">
-            <div class="icon">
-              <i class="fa-solid fa-computer"></i>
-            </div>
-            <h2>Web App</h2>
-            <p>Available in your desktop and mobile browser. all you have to do is create an account, sign in and viola!</p>
+  <!-- Flexbox container with adjusted spacing for responsiveness -->
+  <div class="d-flex justify-content-center align-items-center min-vh-50">
+    <div class="container text-center mt-4 mb-4">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6">
+          <div class="icon">
+            <i class="fa-solid fa-computer"></i>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="icon">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </div>
-            <h2>Notes</h2>
-            <p>Create notes you can save. Need to make changes? click the pretty in pink update button. No longer need them? then smash the delete button.</p>
+          <h2>Web App</h2>
+          <p>Available in your desktop and mobile browser. all you have to do is create an account, sign in and viola!</p>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="icon">
+            <i class="fa-solid fa-pen-to-square"></i>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="icon">
-              <i class="fa-solid fa-rectangle-list"></i>
-            </div>
-            <h2>Tasks Lists</h2>
-            <p>Wish you could write a list wherever you are? Well then go ahead! Write those spur of the moment lists and get sh*t done!</p>
+          <h2>Notes</h2>
+          <p>Create notes you can save. Need to make changes? click the pretty in pink update button. No longer need them? then smash the delete button.</p>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="icon">
+            <i class="fa-solid fa-rectangle-list"></i>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="icon">
-              <i class="fa-solid fa-face-grin-hearts"></i>
-            </div>
-            <h2>User Friendly</h2>
-            <p>Got an email address and a fancy username in mind? Great! Just click the 'Register' button at the top of this page to setup your account and get started. Easy Peasy Lemon Squeezy!</p>
+          <h2>Tasks Lists</h2>
+          <p>Wish you could write a list wherever you are? Well then go ahead! Write those spur of the moment lists and get sh*t done!</p>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="icon">
+            <i class="fa-solid fa-face-grin-hearts"></i>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="icon">
-              <i class="fa-brands fa-github"></i>
-            </div>
-            <h2>Open Source</h2>
-            <p>
-              So you think you are a Rock Star Developer with awesome ideas? Then go ahead and git clone, create a branch and help us create some magic. We dare ya! <a target="_blank" rel="noopener" href="https://github.com/CodeConnoisseur74/gloss">GitHub Repository</a>.
-            </p>
+          <h2>User Friendly</h2>
+          <p>Got an email address and a fancy username in mind? Great! Just click the 'Register' button at the top of this page to setup your account and get started. Easy Peasy Lemon Squeezy!</p>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="icon">
+            <i class="fa-brands fa-github"></i>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="icon">
-              <i class="fa-solid fa-paper-plane"></i>
-            </div>
-            <h2>Stay Updated</h2>
-            <p>
-              Dont be a stranger. Keep in touch and stay updated and folow us on <a target="_blank" rel="noopener" href="https://twitter.com/" aria-label="Follow us on X Twitter"><i class="fa-brands fa-square-x-twitter"></i></a>, or <a target="_blank" rel="noopener" href="https://linkedin.com/" aria-label="Follow us on Linkedin"><i class="fa-brands fa-linkedin"></i></a>.
-            </p>
+          <h2>Open Source</h2>
+          <p>
+            So you think you are a Rock Star Developer with awesome ideas? Then go ahead and git clone, create a branch and help us create some magic. We dare ya! <a target="_blank" rel="noopener" href="https://github.com/CodeConnoisseur74/gloss">GitHub Repository</a>.
+          </p>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="icon">
+            <i class="fa-solid fa-paper-plane"></i>
           </div>
+          <h2>Stay Updated</h2>
+          <p>
+            Dont be a stranger. Keep in touch and stay updated and folow us on <a target="_blank" rel="noopener" href="https://twitter.com/" aria-label="Follow us on X Twitter"><i class="fa-brands fa-square-x-twitter"></i></a>, or <a target="_blank" rel="noopener" href="https://linkedin.com/" aria-label="Follow us on Linkedin"><i class="fa-brands fa-linkedin"></i></a>.
+          </p>
         </div>
       </div>
     </div>
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" defer crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" defer crossorigin="anonymous"></script>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/3b50db2b62.js" defer crossorigin="anonymous"></script>
-    <script src="{% static 'js/app.js' %}" defer></script>
-  </body>
-</html>
+  </div>
+  <br />
+{% endblock %}

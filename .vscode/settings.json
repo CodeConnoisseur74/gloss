@@ -51,34 +51,11 @@
   "[html]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "HookyQR.beautify"
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[django-html]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "junstyle.vscode-django-support"
-  },
-  "beautify.language": {
-    "js": {
-      "type": [
-        "javascript",
-        "json",
-        "jsonc"
-      ],
-      "filename": [
-        ".jshintrc",
-        ".jsbeautifyrc"
-      ]
-    },
-    "css": [
-      "css",
-      "less",
-      "scss"
-    ],
-    "html": [
-      "htm",
-      "html",
-      "django-html"
-    ]
   },
   "ruff.lint.run": "onSave",
   "workbench.commandPalette.experimental.suggestCommands": true,
@@ -130,5 +107,8 @@
   },
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
 }

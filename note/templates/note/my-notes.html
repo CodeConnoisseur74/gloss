@@ -1,6 +1,8 @@
 {% extends 'note/navbar.html' %}
-{% load static %}
 {% block content %}
+  <head>
+    <title>Gloss | My Notes</title>
+  </head>
   <!-- Displaying messages at the top -->
   {% for message in messages %}
     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
@@ -95,9 +97,5 @@
       </div>
     {% endif %}
   {% endif %}
-
   <br />
-  <script src="{% static 'js/app.js' %}"></script>
-  <!-- Include the script to convert UTC time to local time -->
-  <script src="{% static 'js/convert_time.js' %}" defer></script>
 {% endblock %}

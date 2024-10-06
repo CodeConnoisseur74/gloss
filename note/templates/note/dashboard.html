@@ -1,6 +1,8 @@
 {% extends 'note/navbar.html' %}
-{% load static %}
 {% block content %}
+  <head>
+    <title>Gloss | Dashboard</title>
+  </head>
   {% for message in messages %}
     {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
       <p id="message-timer" class="alert alert-dismissible alert-success float-center text-center message-text">
@@ -15,5 +17,4 @@
     <br />
     <img style="width:100x; height:120px;" src="{{ profilePic.profile_pic.url }}" alt="neon default profile pic" />
   </div>
-  <script src="{% static 'js/app.js' %}"></script>
 {% endblock %}

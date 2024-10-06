@@ -20,23 +20,36 @@
   <body>
     {% block navbar %}
       <nav class="navbar navbar-expand-lg bg-primary justify-content-center" data-bs-theme="dark">
-        <a class="lead navbar-brand main-heading ps-2"><i class="fa-solid fa-pen-to-square"></i>&nbsp; Gloss</a>
-
+        <a href="./" class="navbar-brand main-heading ps-2 fw-bold"><i class="fa-solid fa-pen-to-square"></i>&nbsp; Gloss</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
         <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            &nbsp; &nbsp; &nbsp;<li class="nav-link">
-              <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-            </li>&nbsp; &nbsp; &nbsp;<li class="nav-link">
-              <a class="nav-link" href="{% url 'create-note' %}">Create Note</a>
-            </li>&nbsp; &nbsp; &nbsp;<li class="nav-link">
-              <a class="nav-link" href="{% url 'my-notes' %}">My Notes</a>
-            </li>&nbsp; &nbsp; &nbsp;<li class="nav-link">
-              <a class="nav-link" href="{% url 'profile-management' %}">Profile management</a>
-            </li>&nbsp; &nbsp; &nbsp;<li class="nav-link">
-              <a class="nav-link" href="{% url 'user-logout' %}">Logout</a>
-            </li>
+          <ul class="navbar-nav {% if user.is_authenticated %}
+              ml-auto
+            {% else %}
+              ms-auto
+            {% endif %}">
+            {% if user.is_authenticated %}
+              <!-- Authenticated Navbar -->
+              &nbsp; &nbsp; &nbsp;<li class="nav-link">
+                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+              </li>&nbsp; &nbsp; &nbsp;<li class="nav-link">
+                <a class="nav-link" href="{% url 'create-note' %}">Create Note</a>
+              </li>&nbsp; &nbsp; &nbsp;<li class="nav-link">
+                <a class="nav-link" href="{% url 'my-notes' %}">My Notes</a>
+              </li>&nbsp; &nbsp; &nbsp;<li class="nav-link">
+                <a class="nav-link" href="{% url 'profile-management' %}">Profile management</a>
+              </li>&nbsp; &nbsp; &nbsp;<li class="nav-link">
+                <a class="nav-link" href="{% url 'user-logout' %}">Logout</a>
+              </li>
+            {% else %}
+              <!-- Unauthenticated Navbar -->
+              &nbsp; &nbsp; &nbsp;<li class="nav-item">
+                <a class="btn btn-primary navbar-btn" type="button" href="{% url 'register' %}">Register</a>
+              </li>&nbsp; &nbsp; &nbsp;<li class="nav-item">
+                <a class="btn btn-primary navbar-btn" type="button" href="{% url 'my-login' %}">Login</a>
+              </li>&nbsp; &nbsp; &nbsp;
+            {% endif %}
           </ul>
         </div>
       </nav>
