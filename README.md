@@ -28,10 +28,10 @@ Description
   - [Heroku Deployment](#heroku-deployment)
   - [Run Locally](#run-locally)
   - [Technologies](#technologies)
-    - [External Python Modules](#external-python-modules)
+  - [External Python Modules](#external-python-modules)
   - [Planning](#planning)
     - [Wireframes (Canva)](#wireframes-canva)
-  - [Database schema and Flowchart](#database-schema-and-flowchart)
+  - [Database schema and Draw IO](#database-schema-and-draw-io)
   - [Security](#security)
     - [Cross-Site Request Forgery (CSRF) Protection](#cross-site-request-forgery-csrf-protection)
     - [Django Allauth for Authentication and Authorization](#django-allauth-for-authentication-and-authorization)
@@ -102,10 +102,10 @@ The navbar will adapt based on whether or not the user is authenticated or non-a
 
 **Navbar for non-authenticated users**:
 
-![Navbar non auth](docs/images/features/non-auth-navbar.png)
+![Navbar non auth](docs/features/non-auth-navbar.png)
 **Navbar for authenticated users**:
 
-![Navbar auth](docs/images/features/auth-navbar.png)
+![Navbar auth](docs/features/auth-navbar.png)
 
 **_Purpose of feature:_**
 Provide users with an easy and straight-forward way to navigate the site
@@ -120,14 +120,14 @@ Provide users with a way to connect with Gloss Developers and check out Gloss' G
     -  Six short paragraph sections in a responsive grid, summerizing crucial information in a concise manner.
     -A Register button for ease of use.
 
-![Home Page](docs/images/features/home-page.png)
+![Home Page](docs/features/home-page.png)
 
 **_Purpose of feature:_**
 Provide users with a welcoming landing page with concise information and a "call to action" Register button.
 
 ### Register Form
 
-![Register Form](docs/images/features/register-form.png)
+![Register Form](docs/features/register-form.png)
 
 The fields the user needs to fill in is:
 
@@ -143,7 +143,7 @@ Provide users with form in order to register for an account.
 
 ### Login page
 
-![Login page](docs/images/features/login-form.png)
+![Login page](docs/features/login-form.png)
 
 The login form allows the user to enter their credentials and authenticate to enter the sites authenticated state.
 
@@ -161,8 +161,6 @@ The login form also contains a link to the ![Register page](docs/images/features
 ### Profile Management
 
 ## Profile picture
-
-The About page displays an image of the admin next to the paragraph section.
 
 ## Testing
 
@@ -189,8 +187,8 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - Select hobby dev and continue
 - Go to the settings tab and then click reveal config vars
 - Add the following config vars:
-  - SECRET_KEY: (Your secret key)
-  - DATABASE_URL: (This should already exist with add on of postgres)
+  - AWS_SECRET_ACCESS_KEY: (Your secret key)
+  - AWS_ACCESS_KEY_ID: (This should already exist with add on of postgres)
   - EMAIL_HOST_USER: (email address)
   - EMAIL_HOST_PASS: (email app password)
   - CLOUNDINARY_URL: (cloudinary api url)
@@ -232,10 +230,10 @@ Note that you will have to setup your own database and API connections using the
 
 import os
 
-os.environ["DATABASE_URL"]=YOUR_DATABASE_URL
+os.environ["AWS_ACCESS_KEY_ID"]=YOUR_AWS_ACCESS_KEY_ID
+os.environ["AWS_SECRET_ACCESS_KEY"]=YOUR_AWS_SECRET_ACCESS_KEY
+os.environ["AWS_STORAGE_BUCKET_NAME "]=AWS_STORAGE_BUCKET_NAME
 os.environ["SECRET_KEY"]=YOUR_SECRET_KEY
-os.environ["CLOUDINARY_SECRET"]=YOUR_CLOUDINARY_SECRET
-os.environ["THUMIO_AUTH"]=YOUR_THUMIO_AUTH_KEY
 
 ~~~
 
@@ -255,25 +253,21 @@ os.environ["THUMIO_AUTH"]=YOUR_THUMIO_AUTH_KEY
   - This was used for various icons throughout the site
 - Favicon.io
   - favicon files were created at <https://favicon.io/favicon-converter/>
-- balsamiq
-  - wireframes were created using balsamiq from <https://balsamiq.com/wireframes/desktop/#>
-- TinyPNG
-  - This was used to compress the hero image for optimal load times
+- Canva
+  - wireframes were created using Canva <https://canva.com/>
 
-### External Python Modules
+## External Python Modules
 
 - asgiref==3.7.2 - Used for building asynchronous Python web applications, especially with django.
 - cloudinary==1.29.0 - Cloundinary was set up for use but no custom uploads were made, settings remain for future development
 - crispy-bootstrap5==0.6 - This was used to allow bootstrap5 use with crispy forms
 - dj-database-url==0.5.0 - Used to parse database url for production environment
-- dj3-cloudinary-storage==0.0.6 - Storage system to work with cloudinary
 - Django==4.2.10 - Framework used to build the application
 - django-allauth==0.57.2 - Used for the sites authentication system, sign up, sign in, logout, password resets ect.
 - django-crispy-forms==2.1 - Used to style the forms on render
 - gunicorn==20.1.0 - Installed as dependency with another package
 - oauthlib==3.2.0 - Installed as dependency with another package
 - psycopg2==2.9.9 - Needed for heroku deployment
-- PyJWT==2.8.0 - Installed as dependency with another package
 - python3-openid==3.2.0 - Installed as dependency with another package
 - requests-oauthlib==1.3.1 - Installed as dependency with another package (allauth authentication)
 - sqlparse==0.4.4 - Installed as dependency with another package
@@ -285,7 +279,6 @@ os.environ["THUMIO_AUTH"]=YOUR_THUMIO_AUTH_KEY
 ### Wireframes (Canva)
 
 I created the wireframes for this site with Canva.
-The wireframes should not be considered finished product, but as a tool I used as inspiration when creating the Quiz.
 
 <details>
 <summary><b>Wireframes for desktop</b></summary>
@@ -315,9 +308,9 @@ The wireframes should not be considered finished product, but as a tool I used a
 <img src="static/images/readme_files/wireframes/Login - Small screen.png">
 </details>
 
-## Database schema and Flowchart
+## Database schema and Draw IO
 
-![Database schema](static/images/readme_files/docs/longdog.drawio.png)
+![Database schema](static/images/readme_files/docs/.drawio.png)
 
 ![Flowchart](static/images/readme_files/docs/flowchart.png)
 
