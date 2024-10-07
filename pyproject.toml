@@ -70,9 +70,10 @@ inline-quotes = "single"
 "tests/**/*" = ["PLR2004", "S101", "TID252"]
 
 [tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "gloss.settings"
 addopts = "--quiet --failed-first --reuse-db --nomigrations -p no:warnings -m 'not slow' --benchmark-skip"
 testpaths = [
-    "tests"
+    "note/tests.py"
 ]
 markers = [
     "slow: marks tests as slow",
