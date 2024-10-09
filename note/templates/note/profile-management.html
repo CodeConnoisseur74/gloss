@@ -5,33 +5,39 @@
     <title>Gloss | Profile Management</title>
   </head>
   <br />
-  <div class="container bg-tertiary shadow-lg p-5 form-layout">
-    <h3>Update username and email</h3>
-    <p>You may change your username and email below:</p>
+  <div class="container bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
+    <h1>Update username and email</h1>
+    <p>
+      <b>You may change your username and email below:</b>
+    </p>
     <br />
     <form method="POST" autocomplete="off">
       {% csrf_token %}
       {{ UserUpdateForm|crispy }}
       <br />
-      <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update</button>
+      <button class="btn custom-primary-bg btn-lg w-100 btn-block p-3" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update</button>
     </form>
   </div>
   <br />
-  <div class="container bg-tertiary shadow-lg p-5 form-layout">
+  <div class="container bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
     <h3>Update profile picture</h3>
-    <p>You may change or upload a profile picture below:</p>
+    <p>
+      <b>You may change or upload a profile picture below:</b>
+    </p>
     <br />
     <form method="POST" autocomplete="off" enctype="multipart/form-data">
       {% csrf_token %}
       {{ ProfileUpdateForm|crispy }}
       <br />
-      <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Upload profile picture</button>
+      <button class="btn custom-primary-bg btn-lg w-100 btn-block p-3" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Upload profile picture</button>
     </form>
   </div>
   <br />
-  <div class="container bg-tertiary shadow-lg p-5 form-layout">
+  <div class="container bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
     <h3>Delete your account</h3>
-    <p>If you would like to close your account, please proceed below:</p>
+    <p>
+      <b>If you would like to close your account, please proceed below:</b>
+    </p>
     <br />
     <a href="{% url 'delete-account' %}">Proceed to delete your account</a>
   </div>

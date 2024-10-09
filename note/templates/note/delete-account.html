@@ -1,16 +1,18 @@
 {% extends 'note/navbar.html' %}
 {% block content %}
-<head>
-  <title>Gloss | Delete Account</title>
-</head>
+  <head>
+    <title>Gloss | Delete Account</title>
+  </head>
   <br />
-  <div class="container bg-tertiary shadow-lg p-5 form-layout">
+  <div class="container bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
     <h3>Delete your account</h3>
-    <p>Are you sure that you want to delete your account?</p>
+    <p>
+      <b>Are you sure that you want to delete your account?</b>
+    </p>
     <br />
     <form method="POST" autocomplete="off">
       {% csrf_token %}
-      <button class="btn btn-danger btn-md w-100 btn-block p-3" type="submit"><i class="fa-solid fa-minus" aria-hidden="true"></i> &nbsp; Yes, delete my account</button>
+      <button class="btn custom-danger-bg btn-lg w-100 btn-block p-3" type="submit"><i class="fa-solid fa-minus" aria-hidden="true"></i> &nbsp; Yes, delete my account</button>
     </form>
     <br />
     <a href="{% url 'profile-management' %}">Return to profile management</a>

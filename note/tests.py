@@ -5,7 +5,24 @@ from note.models import Note, Profile
 
 
 class NoteUserRelationshipTest(TestCase):
+    """
+    Tests the relationship between a Note and a User.
+
+    Methods:
+        test_note_user_relationship():
+            Verifies that a note is correctly associated with a user and is saved in the database.
+    """
+
     def test_note_user_relationship(self):
+        """
+        Test to ensure that a Note can be correctly associated with a User.
+
+        Steps:
+        - Create a test user.
+        - Create a note and associate it with the user.
+        - Verify that the note is associated with the user.
+        - Check that the note is saved in the database and is associated with the correct user.
+        """
         # Step 1: Create a test user
         user = User.objects.create_user(username='testuser', password='testpassword')
 
@@ -23,7 +40,25 @@ class NoteUserRelationshipTest(TestCase):
 
 
 class ProfileUserRelationshipTest(TestCase):
+    """
+    Tests the relationship between a Profile and a User.
+
+    Methods:
+        test_profile_user_relationship():
+            Verifies that a profile is correctly associated with a user and has the default profile picture.
+    """
+
     def test_profile_user_relationship(self):
+        """
+        Test to ensure that a Profile can be correctly associated with a User.
+
+        Steps:
+        - Create a test user.
+        - Create a profile and associate it with the user.
+        - Verify that the profile is associated with the user.
+        - Check the default profile picture.
+        - Check that the profile is saved in the database and is associated with the correct user.
+        """
         # Step 1: Create a test user
         user = User.objects.create_user(username='testuser', password='testpassword')
 

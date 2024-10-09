@@ -5,21 +5,22 @@
     <title>Gloss | My Login</title>
   </head>
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
-      <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-tertiary shadow-lg p-5 form-layout">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
         <h1 class="text-center">Login to your account</h1>
         <br />
         <form method="POST" autocomplete="off">
           {% csrf_token %}
           {% for message in messages %}
             {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-              <p id="message-timer" class="alert alert-dismissible alert-success float-center text-center message-text">
+              <p id="message-timer"
+              class="alert alert-dismissible alert-success float-center text-center message-text">
                 <i class="fa-solid fa-check" aria-hidden="true"></i> &nbsp; {{ message }}
               </p>
             {% endif %}
           {% endfor %}
           {{ LoginForm|crispy }}
           <br /> <br />
-          <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa-solid fa-key" aria-hidden="true"></i> &nbsp; Login</button>
+          <button class="btn custom-primary-bg btn-lg w-100 btn-block p-3" type="submit"><i class="fa-solid fa-key" aria-hidden="true"></i> &nbsp; Login</button>
         </form>
         <br />
         <div class="lead text-center">

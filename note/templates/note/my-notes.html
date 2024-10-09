@@ -19,7 +19,7 @@
       <div class="col-md-8 col-lg-6">
         <h2 class="text-center mt-4 mt-lg-3 mb-4 mb-lg-5">Create your first note. They will appear here.</h2>
         <div class="d-flex justify-content-center">
-          <a class="btn btn-primary btn-md" href="{% url 'create-note' %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Create Note</a>
+          <a class="btn custom-primary-bg btn-lg" href="{% url 'create-note' %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Create Note</a>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
       <!-- Full-screen width for one note -->
       <div class="row justify-content-center">
         <div class="col-12">
-          <div class="container bg-tertiary shadow-lg p-5 form-layout">
+          <div class="container bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
             <h3>{{ AllNotes.0.title }}</h3>
             {{ AllNotes.0.content }}
             <br />
@@ -40,10 +40,12 @@
             <br />
             <br />
             <br />
-            <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' AllNotes.0.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+            <a class="btn custom-primary-bg btn-lg w-100 btn-block p-2" href="{% url 'update-note' AllNotes.0.id %}">
+              <i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
             <br />
             <br />
-            <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' AllNotes.0.id %}"><i class="fa-solid fa-minus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+            <a class="btn custom-danger-bg btn-lg w-100 btn-block p-2" href="{% url 'delete-note' AllNotes.0.id %}">
+              <i class="fa-solid fa-minus" aria-hidden="true"></i> &nbsp; Delete Note</a>
           </div>
         </div>
       </div>
@@ -52,7 +54,7 @@
       <div class="row justify-content-center gy-4">
         {% for note in AllNotes %}
           <div class="col-md-6">
-            <div class="container bg-tertiary shadow-lg p-5 form-layout">
+            <div class="container bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
               <h3>{{ note.title }}</h3>
               {{ note.content }}
               <br />
@@ -63,10 +65,10 @@
               <br />
               <br />
               <br />
-              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+              <a class="btn custom-primary-bg btn-lg w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
               <br />
               <br />
-              <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa-solid fa-minus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+              <a class="btn custom-danger-bg btn-lg w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa-solid fa-minus" aria-hidden="true"></i> &nbsp; Delete Note</a>
             </div>
           </div>
         {% endfor %}
@@ -76,7 +78,7 @@
       <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
         {% for note in AllNotes %}
           <div class="col">
-            <div class="container bg-tertiary shadow-lg p-5 form-layout">
+            <div class="container bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
               <h3>{{ note.title }}</h3>
               {{ note.content }}
               <br />
@@ -87,10 +89,10 @@
               <br />
               <br />
               <br />
-              <a class="btn btn-primary btn-md w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
+              <a class="btn custom-primary-bg btn-lg w-100 btn-block p-2" href="{% url 'update-note' note.id %}"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Update Note</a>
               <br />
               <br />
-              <a class="btn btn-danger btn-md w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa-solid fa-minus" aria-hidden="true"></i> &nbsp; Delete Note</a>
+              <a class="btn custom-danger-bg btn-lg w-100 btn-block p-2" href="{% url 'delete-note' note.id %}"><i class="fa-solid fa-minus" aria-hidden="true"></i> &nbsp; Delete Note</a>
             </div>
           </div>
         {% endfor %}

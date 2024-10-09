@@ -1,3 +1,29 @@
+"""
+Views for the 'note' app.
+
+This module defines the views that handle various operations such as:
+    - User registration, login, and logout
+    - Note creation, updating, and deletion
+    - Profile management and account deletion
+    - Password reset and management
+
+Each view corresponds to a specific URL pattern in the 'note' app and is responsible
+for rendering the corresponding HTML template and handling form submissions or other requests.
+
+Views:
+    - homepage: Displays the homepage of the app.
+    - register: Handles user registration and form submissions.
+    - my_login: Manages the login functionality.
+    - dashboard: Displays the user dashboard after login.
+    - user_logout: Logs out the current user and redirects to the homepage.
+    - create_note: Allows users to create a new note.
+    - my_notes: Displays a list of notes created by the user.
+    - update_note: Allows users to update an existing note.
+    - delete_note: Handles the deletion of a note by the user.
+    - profile_management: Manages the user's profile information.
+    - delete_account: Handles the deletion of a users account.
+"""
+
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -11,10 +37,16 @@ from note.models import Note, Profile
 
 
 def homepage(request):
+    """
+    View to display the homepage of the application.
+    """
     return render(request, 'note/index.html')
 
 
 def register(request):
+    """
+    Manages the login process. Displays the login form and processes the login action.
+    """
     form = CreateUserForm()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
@@ -37,6 +69,9 @@ def register(request):
 
 
 def my_login(request):
+    """
+    Manages the login process. Displays the login form and processes the login action.
+    """
     form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request, data=request.POST)
@@ -55,13 +90,19 @@ def my_login(request):
 
 
 def user_logout(request):
+    """
+    Logs out the current user and redirects them to the homepage.
+    """
     auth.logout(request)
-    messages.success(request, 'You were logged out securely!')
+    messages.success(request, 'You were logged out seccessfully!')
     return redirect('')
 
 
 @login_required(login_url='my-login')
 def dashboard(request):
+    """
+    Displays the dashboard view for authenticated users.
+    """
     profile_pic = Profile.objects.get(user=request.user)
     context = {'profilePic': profile_pic}
     return render(request, 'note/dashboard.html', context)
@@ -69,6 +110,9 @@ def dashboard(request):
 
 @login_required(login_url='my-login')
 def create_note(request):
+    """
+    Allows users to create a new note. Displays the form and processes submissions.
+    """
     form = NoteForm()
 
     if request.method == 'POST':
@@ -86,6 +130,9 @@ def create_note(request):
 
 @login_required(login_url='my-login')
 def my_notes(request):
+    """
+    Displays a list of notes created by the authenticated user.
+    """
     current_user = request.user.id
     notes = Note.objects.filter(user=current_user).order_by('-date_posted')
     context = {'AllNotes': notes}
@@ -94,6 +141,9 @@ def my_notes(request):
 
 @login_required(login_url='my-login')
 def update_note(request, pk):
+    """
+    Allows users to update an existing note identified by its primary key (pk).
+    """
     try:
         note = Note.objects.get(id=pk, user=request.user)
     except:  # noqa: E722
@@ -115,6 +165,9 @@ def update_note(request, pk):
 
 @login_required(login_url='my-login')
 def profile_management(request):
+    """
+    Manages the user's profile, allowing them to update their profile information.
+    """
     form = UpdateUserForm(instance=request.user)
     profile = Profile.objects.get(user=request.user)
     form_2 = UpdateProfileForm(instance=profile)
@@ -139,6 +192,9 @@ def profile_management(request):
 
 @login_required(login_url='my-login')
 def delete_account(request):
+    """
+    Handles the deletion of a user's account. Displays a confirmation and processes account deletion.
+    """
     if request.method == 'POST':
         delete_user = User.objects.get(username=request.user)
         delete_user.delete()

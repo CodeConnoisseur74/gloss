@@ -5,15 +5,17 @@
     <title>Gloss | Create Note</title>
   </head>
   <br />
-  <div class="container bg-tertiary shadow-lg p-5 form-layout">
+  <div class="container bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
     <h1>Create a Note</h1>
-    <p>You may create a note below:</p>
+    <p>
+      <b>You may create a note below:</b>
+    </p>
     <br />
     <form method="POST" autocomplete="off">
       {% csrf_token %}
       {{ CreateNoteForm|crispy }}
       <br />
-      <button class="btn btn-primary btn-md w-100 btn-block p-3" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Create Note</button>
+      <button class="btn custom-primary-bg btn-lg w-100 btn-block p-3" type="submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> &nbsp; Create Note</button>
     </form>
   </div>
   <br />

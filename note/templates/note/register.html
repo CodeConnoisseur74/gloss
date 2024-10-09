@@ -5,15 +5,15 @@
     <title>Gloss | Register</title>
   </head>
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <!-- Make the form responsive with col classes -->
-    <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-tertiary shadow-lg p-5 form-layout">
-      <h3>Create your account</h3>
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 bg-secondary bg-opacity-10 shadow-lg p-5 form-layout">
+      <h1>Create your account</h1>
       <br />
       <form method="POST" autocomplete="off">
         {% csrf_token %}
         {{ RegistrationForm|crispy }}
         <br />
-        <button class="btn btn-primary btn-lg w-100 btn-block p-3" type="submit"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> &nbsp; Create account</button>
+        <button class="btn custom-primary-bg btn-lg w-100 btn-block p-3" type="submit">
+          <i class="fa-solid fa-user-plus" aria-hidden="true"></i> &nbsp; Create account</button>
       </form>
       <br />
       <div class="text-center">
