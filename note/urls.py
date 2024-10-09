@@ -1,8 +1,10 @@
 """
 URL configuration for the 'note' app.
 
-This module defines URL patterns for the note app, including routes for user authentication,
-password management, note management, and profile management. The paths correspond to view functions
+This module defines URL patterns for the note app, including routes
+for user authentication,
+password management, note management, and profile management.
+The paths correspond to view functions
 in the 'note' app and Django's built-in authentication views.
 
 The URLs include:
@@ -19,11 +21,14 @@ Routes:
     - 'user-logout': Maps to the logout functionality.
     - 'create-note': Maps to the view for creating a new note.
     - 'my-notes': Maps to the view displaying the user's notes.
-    - 'update-note/<str:pk>': Maps to the view for updating a note (identified by primary key).
-    - 'delete-note/<str:pk>': Maps to the view for deleting a note (identified by primary key).
+    - 'update-note/<str:pk>':
+    Maps to the view for updating a note (identified by primary key).
+    - 'delete-note/<str:pk>':
+      Maps to the view for deleting a note (identified by primary key).
     - 'profile-management': Maps to the profile management view.
     - 'delete-account': Maps to the view for deleting the user's account.
-    - Password reset routes provided by Django's authentication views for resetting user passwords.
+    - Password reset routes provided by
+    Django's authentication views for resetting user passwords.
 """
 
 from django.contrib.auth import views as auth_views

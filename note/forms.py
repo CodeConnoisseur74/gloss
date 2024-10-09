@@ -5,7 +5,8 @@ This module defines several forms used in the app, including:
     - NoteForm: Handles note creation and editing.
     - CreateUserForm: Manages user registration with the required fields.
     - LoginForm: Manages user authentication with a custom login form.
-    - UpdateUserForm: Allows users to update their account information (username and email).
+    - UpdateUserForm: Allows users to update their account information
+        (username and email).
     - UpdateProfileForm: Allows users to update their profile picture.
 """
 
@@ -22,7 +23,8 @@ from note.models import Note, Profile
 
 class NoteForm(ModelForm):
     """
-    Form to create or update a note. Excludes the 'user' field which is set programmatically.
+    Form to create or update a note. Excludes the 'user' field which is set
+    programmatically.
     """
 
     class Meta:
@@ -33,17 +35,25 @@ class NoteForm(ModelForm):
 
 class CreateUserForm(UserCreationForm):
     """
-    Form for registering a new user. Includes fields for username, email, password1, and password2.
+    Form for registering a new user. Includes fields for username, email,
+    password1, and
+    password2.
     """
 
     class Meta:
         model = User
-        fields: ClassVar[list[str]] = ['username', 'email', 'password1', 'password2']
+        fields: ClassVar[list[str]] = [
+            'username',
+            'email',
+            'password1',
+            'password2',
+        ]
 
 
 class LoginForm(AuthenticationForm):
     """
-    Custom login form using Django's AuthenticationForm with customized username and password fields.
+    Custom login form using Django's AuthenticationForm with customized
+    username and password fields.
     """
 
     username = forms.CharField(widget=TextInput())
@@ -52,7 +62,8 @@ class LoginForm(AuthenticationForm):
 
 class UpdateUserForm(forms.ModelForm):
     """
-    Form to update a user's account information (username and email). Password fields are excluded.
+    Form to update a user's account information (username and email).
+    Password fields are excluded.
     """
 
     password = None
@@ -65,10 +76,14 @@ class UpdateUserForm(forms.ModelForm):
 
 class UpdateProfileForm(forms.ModelForm):
     """
-    Form to update a user's profile picture. Uses a custom file input widget for the profile_pic field.
+    Form to update a user's profile picture. Uses a custom file input widget
+    for the profile_pic field.
+
     """
 
-    profile_pic = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
+    profile_pic = forms.ImageField(
+        widget=forms.FileInput(attrs={'class': 'form-control-file'})
+    )
 
     class Meta:
         model = Profile

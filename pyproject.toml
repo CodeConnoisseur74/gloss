@@ -2,7 +2,7 @@
 src = ["gloss"]
 exclude = ["example", "**/migrations/*"]
 target-version = "py310"
-line-length = 120
+line-length = 79
 lint.select = [
   "A",
   "ARG",

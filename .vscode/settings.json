@@ -16,7 +16,7 @@
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
   "editor.rulers": [
-    119
+    88
   ],
   "[python]": {
     "editor.formatOnSave": true,
@@ -91,7 +91,7 @@
   "terminal.integrated.copyOnSelection": true,
   "evenBetterToml.formatter.columnWidth": 1,
   "evenBetterToml.formatter.allowedBlankLines": 1,
-  "ruff.lineLength": 119,
+  "ruff.lineLength": 88,
   "debug.console.acceptSuggestionOnEnter": "on",
   "ruff.configuration": "/workspace/gloss/pyproject.toml",
   "[toml]": {

@@ -8,7 +8,8 @@ This module defines the views that handle various operations such as:
     - Password reset and management
 
 Each view corresponds to a specific URL pattern in the 'note' app and is responsible
-for rendering the corresponding HTML template and handling form submissions or other requests.
+for rendering the corresponding HTML template and handling form
+submissions or other requests.
 
 Views:
     - homepage: Displays the homepage of the app.
@@ -32,7 +33,13 @@ from django.contrib.auth.models import User, auth
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 
-from note.forms import CreateUserForm, LoginForm, NoteForm, UpdateProfileForm, UpdateUserForm
+from note.forms import (
+    CreateUserForm,
+    LoginForm,
+    NoteForm,
+    UpdateProfileForm,
+    UpdateUserForm,
+)
 from note.models import Note, Profile
 
 
@@ -193,7 +200,8 @@ def profile_management(request):
 @login_required(login_url='my-login')
 def delete_account(request):
     """
-    Handles the deletion of a user's account. Displays a confirmation and processes account deletion.
+    Handles the deletion of a user's account.
+    Displays a confirmation and processes account deletion.
     """
     if request.method == 'POST':
         delete_user = User.objects.get(username=request.user)
